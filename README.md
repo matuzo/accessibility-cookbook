@@ -18,4 +18,4 @@ npm start
 ## Current status
 
 Done: Recipe 1.1 - 1.6  
-Open: Chapter 3, 4, 9, 10, 11
+Open: Recipe 1.7 and Chapter 3, 4, 9, 10, 11
