@@ -1,0 +1,24 @@
+{
+  "name": "a11y-cookbook-demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matuzo/accessibility-cookbook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matuzo/accessibility-cookbook/issues"
+  },
+  "homepage": "https://github.com/matuzo/accessibility-cookbook#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^0.3.5"
+  }
+}

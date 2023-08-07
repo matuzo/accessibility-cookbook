@@ -1,0 +1,32 @@
+---
+layout: page.njk
+title: Styling links
+eleventyNavigation:
+  key: Styling links
+  parent: Recipe 1.1
+---
+<style>
+  a:link {
+    color: blue;
+  }
+  a:visited {
+    color: rebeccapurple;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  a:active {
+    color: red;
+  }
+  a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+</style>
+
+<p>
+  <!-- Link to an external site -->
+  <a href="https://www.oreilly.com/products/books-videos.html">
+  O'Reilly books and videos
+  </a>
+</p>

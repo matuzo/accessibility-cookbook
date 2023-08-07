@@ -1,0 +1,19 @@
+body {
+  font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+  line-height: 1.6;
+  font-size: 1.2rem;
+  margin: 1.4rem;
+}
+
+a:link {
+  color: #3c843f;
+}
+
+a:visited {
+  color: #234c25;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}

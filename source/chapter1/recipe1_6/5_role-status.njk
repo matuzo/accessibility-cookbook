@@ -1,0 +1,24 @@
+---
+layout: page.njk
+title: role status
+eleventyNavigation:
+  key: role status
+  parent: Recipe 1.6
+---
+
+<button>Change name</button>
+
+<div role="status">
+ My name is <span>Claudia</span>
+</div>
+
+<script>
+  const button = document.querySelector('button');
+  const names = ['Moritz', 'Valentina', 'Johanna', 'Magdalena', 'Victoria'];
+  const name = document.querySelector('span');
+
+  button.addEventListener('click', e => {
+    const random = Math.floor(Math.random() * names.length);
+    name.textContent = names[random];
+  })
+</script>
