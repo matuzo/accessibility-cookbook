@@ -14,3 +14,8 @@ npm install
 ```
 npm start 
 ```
+
+## Current status
+
+Done: Recipe 1.1 - 1.6  
+Open: Chapter 3, 4, 9, 10, 11
