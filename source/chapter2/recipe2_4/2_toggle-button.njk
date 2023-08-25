@@ -1,0 +1,39 @@
+---
+layout: page.njk
+title: Toggle Button
+eleventyNavigation:
+  key: Toggle Button
+  parent: Recipe 2.4
+date: 2024-01-02
+---
+<button type="button" aria-pressed="true">
+  Dark mode
+</button>
+
+<style>
+  html {
+    --bg: #FFF;
+    --text: #000;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  .dark {
+    --bg: #000;
+    --text: #FFF;
+  }
+</style>
+
+<script>
+  const button = document.querySelector('button')
+
+  button.addEventListener('click', e => {
+    const isPressed = button.getAttribute('aria-pressed') === "true"
+    button.setAttribute('aria-pressed', !isPressed)
+
+    document.documentElement.classList.toggle('dark')
+  })
+</script>

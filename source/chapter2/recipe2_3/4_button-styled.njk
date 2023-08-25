@@ -1,0 +1,29 @@
+---
+layout: page.njk
+title: Styled button
+eleventyNavigation:
+  key: Styled button
+  parent: Recipe 2.3
+---
+<style>
+  button {
+    --_l: 30%;
+  
+    background: hsl(180deg 29% var(--_l));
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: inherit;
+    padding: 0.4em 0.9em;
+    border-radius: 3px;
+    border: 0;
+    min-width: 7rem;
+  }
+
+  button:is(:hover, :focus-visible) {
+    --_l: 10%;
+  }
+</style>
+
+<button type="button">
+  Download
+</button>
