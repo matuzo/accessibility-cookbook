@@ -1,0 +1,37 @@
+---
+layout: page.njk
+title: Custom disclosure
+eleventyNavigation:
+  key: Custom disclosure
+  parent: Recipe 9.3
+---
+<style>
+  [aria-expanded="false"] + .disclosure-content {
+    display: none;
+  }
+</style>
+
+<div class="disclosure">
+  <button aria-expanded="false" aria-controls="content">
+    Show details
+  </button> 
+
+  <div class="disclosure-content" id="content">
+    <p>Detailed content goes here…</p>
+    <p>Detailed content goes here…</p>
+    <p>Detailed content goes here…</p>
+    <p>Detailed content goes here…</p>
+    <p>Detailed content goes here…</p>
+    <p>Detailed content goes here…</p>
+  </div>
+</div>
+
+<p>More content…</p>
+
+<script>
+  const button = document.querySelector('button');
+
+  button.addEventListener('click', e => {
+    button.setAttribute('aria-expanded', button.getAttribute('aria-expanded') === "false")
+  })
+</script>

@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<!-- TODO: Check lang attribute --> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nav Styled - Accessibility Cookbook</title>
+  
+  <script type="module">document.documentElement.classList.replace('no-js', 'js');</script>
+  
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header>
+  <a href="/">Accessibility CookBook Demos</a>
+</header>
+<main>
+  <h1>Nav Styled</h1>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    --text-color: hsl(0deg 0% 0%);
+    --text-color-light: hsl(0deg 0% 100%);
+    --highlight-color: hsl(209deg 56% 45%);
+  }
+
+  nav a {
+    display: inline-block;	
+    font-size: 1.4rem;
+  }
+
+  .secondary {
+    display: flex;
+    gap: 1rem;
+  }
+
+  nav {
+    margin-top: 2rem;
+  }
+
+  nav a:is(:link, :visited) {
+    color: var(--text-color);
+  }
+
+  nav a {
+    border-block-end: 3px solid var(--border-color, transparent);
+    text-decoration: none;
+  }
+
+  [aria-current="page"] {
+    --border-color: var(--highlight-color);
+    --text-color: var(--highlight-color);
+  }
+
+  a:focus-visible {
+    outline: 4px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  .skip-link:is(:link, :visited) {
+    background-color: var(--highlight-color);
+    color: var(--text-color-light);
+    padding: 0.5rem;
+    position: absolute;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .skip-link:not(:focus-visible) {
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    width: 1px;
+    white-space: nowrap;
+  }
+
+  nav {
+    z-index: 1;
+  }
+
+  @media (min-width: 48em) {
+    nav {
+      --nav-position: static;
+      --nav-button-display: none;
+    }
+
+    ul {
+      --nav-list-layout: row;
+      --nav-list-position: static;
+      --nav-list-padding: 0;
+      --nav-list-height: auto;
+      --nav-list-width: 100%;
+      --nav-list-shadow: none;
+      --nav-list-transform: none;
+      --nav-list-visibility: visible;
+    }
+  }
+
+    nav {
+      position: var(--nav-position, fixed);
+      inset-block-start: 1rem;
+      inset-inline-end: 1rem;
+    }
+
+    ul {
+      background: hsl(0 0% 100%);
+      box-shadow: var(--nav-list-shadow, -5px 0 11px 0 hsl(0 0% 0% / 0.2));
+      display: flex;
+      flex-direction: var(--nav-list-layout, column);
+      flex-wrap: wrap;
+      gap: 1rem;
+      height: var(--nav-list-height, 100dvh);
+      list-style: none;
+      margin: 0;
+      padding: var(--nav-list-padding, 2rem);
+      position: var(--nav-list-position, fixed);
+      inset-block-start: 0; /* Logical property. Equivalent to top: 0; */
+      inset-inline-end: 0; /* Logical property. Equivalent to right: 0; */
+      width: var(--nav-list-width, min(22rem, 100vw));
+      visibility: var(--nav-list-visibility, hidden);
+
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+
+    [aria-expanded="true"] + ul {
+      --nav-list-visibility: visible;
+      --nav-list-transform: translateX(0);
+
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      ul {
+        transform: var(--nav-list-transform, translateX(100%));
+        opacity: 1;
+        transition: transform 0.6s cubic-bezier(.68,-0.55,.27,1.55), visibility 0.3s linear;
+      }
+    }
+
+    button {
+      all: unset;
+      display: var(--nav-button-display, flex);
+      position: relative;
+      z-index: 1;
+    }
+
+    button:focus-visible {
+      outline: 4px solid currentColor;
+      outline-offset: 2px;
+    }
+
+  </style>
+</head>
+<body>
+    
+<header>
+  <a class="skip-link" href="#nav">Jump to navigation</a>
+
+  <div class="secondary">
+    <a href="/">My logo</a>
+    <a href="/">Some link</a>
+    <a href="/">Another link</a>
+    <button>A button</button>
+    <button>Another button</button>
+  </div>
+  
+
+  <nav id="nav" aria-label="Main">
+    <ul>
+      <li>
+        <a href="/home">Home</a>
+      </li>
+      <li>
+        <a href="/products" aria-current="page">Products</a>
+      </li>
+      <li>
+        <a href="/team">Team</a>
+      </li>
+      <li>
+        <a href="/contact">Contact</a>
+      </li>
+    </ul>
+
+    <template id="burger-template">
+      <button type="button" aria-expanded="false" aria-label="Menu" aria-controls="mainnav">
+        <svg viewBox="-5 0 10 8" width="40" aria-hidden="true">
+          <line y2="6.5" stroke="#000" stroke-width="10" stroke-dasharray="1.5 1"/>
+        </svg>
+      </button>
+    </template>
+  </nav>
+</header>
+    
+<main>    
+  <p>One morning, when <a href="https://en.wikipedia.org/wiki/The_Metamorphosis#Gregor_Samsa">Gregor Samsa</a> woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. "What's happened to me?" he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls. A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather</p>
+</main>    
+  
+<script>
+const nav = document.querySelector('nav')
+const list = nav.querySelector('ul');
+const burgerClone = document.querySelector('#burger-template').content.cloneNode(true);
+const button = burgerClone.querySelector('button');
+
+// Toggle aria-expanded attribute
+button.addEventListener('click', e => {
+  // aria-expanded="true" signals that the menu is currently open
+  const isOpen = button.getAttribute('aria-expanded') === "true"
+    button.setAttribute('aria-expanded', !isOpen);
+  });
+
+  // Hide list on keydown Escape
+  nav.addEventListener('keyup', e => {
+    if (e.code === 'Escape') {
+      button.setAttribute('aria-expanded', false);
+      button.focus();
+    }
+  });
+
+  // Add the button to the page
+  nav.insertBefore(burgerClone, list);
+
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: no-preference)');
+
+  if (mediaQuery.matches) {
+    console.log('add animation')
+  }
+
+  mediaQuery.addEventListener('change', () => {
+    if (mediaQuery.matches) {
+      console.log('add animation')
+    } else {
+      console.log('reduce animation')
+    }
+});
+</script>
+</main>
+</body>
+</html>

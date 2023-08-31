@@ -1,0 +1,22 @@
+---
+layout: page.njk
+title: Details element styled
+eleventyNavigation:
+  key: Details element styled
+  parent: Recipe 9.2
+---
+<style>
+  summary::marker {
+    content: "+ ";
+  }
+
+  details[open] summary::marker {
+    content: "- ";
+  }
+</style>
+
+<details>
+  <summary>Show details</summary>
+  
+  <p>Detailed content goes here…</p>
+</details>

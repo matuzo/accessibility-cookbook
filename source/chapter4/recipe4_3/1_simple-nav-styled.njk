@@ -1,0 +1,59 @@
+---
+layout: page.njk
+title: Simple Nav List Styled
+eleventyNavigation:
+  key: Simple Nav List Styled
+  parent: Recipe 4.3
+---
+<style>
+  html {
+    --text-color: hsl(0 0% 0%);
+    --highlight-color: hsl(209 56% 45%);
+  }
+
+  ul {
+    display: flex;
+    font-size: 1.4rem;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header a {
+    padding: 0.2rem;
+  }
+
+  header a:is(:link, :visited) {
+    border-block-end: 3px solid var(--border-color, transparent);
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  header a:focus-visible {
+    outline: 4px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  header [aria-current="page"] {
+    --border-color: var(--highlight-color);
+    --text-color: var(--highlight-color);
+  }
+</style>
+
+<header>
+  <ul role="list">
+    <li>
+      <a href="/home">Home</a>
+    </li>
+    <li>
+      <a href="/products" aria-current="page">Products</a>
+    </li>
+    <li>
+      <a href="/team">Team</a>
+    </li>
+    <li>
+      <a href="/contact">Contact</a>
+    </li>
+  </ul>
+</header>

@@ -1,0 +1,42 @@
+---
+layout: page.njk
+title: Simple Nav Styled
+eleventyNavigation:
+  key: Simple Nav Styled
+  parent: Recipe 4.2
+---
+<style>
+  html {
+    --text-color: hsl(0 0% 0%);
+    --highlight-color: hsl(209 56% 45%);
+  }
+  
+  header a {
+    display: inline-block;	
+    font-size: 1.4rem;
+    padding: 0.2rem;
+  }
+
+  header a:is(:link, :visited) {
+    border-block-end: 3px solid var(--border-color, transparent);
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  header a:focus-visible {
+    outline: 4px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  header [aria-current="page"] {
+    --border-color: var(--highlight-color);
+    --text-color: var(--highlight-color);
+  }
+</style>
+
+<header>
+  <a href="/home">Home</a>
+  <a href="/products" aria-current="page">Products</a>
+  <a href="/team">Team</a>
+  <a href="/contact">Contact</a>
+</header>

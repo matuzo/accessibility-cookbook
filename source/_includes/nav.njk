@@ -1,6 +1,6 @@
 {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.key) %}
 
-<ol>
+<ol class="{{ class or 'index'}}">
   {% for page in navPages %}
   <li>
     <a href="{{ page.url }}">

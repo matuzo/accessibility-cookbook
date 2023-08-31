@@ -1,0 +1,24 @@
+---
+layout: page.njk
+title: Lang selector
+eleventyNavigation:
+  key: Lang selector
+  parent: Recipe 10.1
+---
+<style>
+  p:lang(de) {
+    border: 10px solid red;
+  }
+
+  p:lang(en) {
+    border: 10px solid blue;
+  }
+</style>
+
+<p lang="de">
+  Deutscher Text
+</p>
+
+<p lang="en-GB">
+  English Text
+</p>

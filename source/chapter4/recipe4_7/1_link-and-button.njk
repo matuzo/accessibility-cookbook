@@ -1,0 +1,54 @@
+---
+layout: page.njk
+title: Link and Button
+eleventyNavigation:
+  key: Link and Button
+  parent: Recipe 4.7
+---
+<style>
+  [aria-expanded="false"] + .nav-sublist {
+    display: none;
+  }
+</style>
+<nav aria-label="Main">
+  <ul class="nav-list">
+    <li>
+      <a href="/home">Home</a>
+    </li>
+
+    <li>
+      <a href="/products" id="mainnav-2">Products</a>
+
+      <button 
+        aria-expanded="false"
+        aria-labelledby="mainnav-2"
+        aria-controls="mainnav-2-sub" class="mainnav-toggle-sub">
+        &#9207;
+      </button>
+
+      <ul class="nav-sublist" id="mainnav-2-sub">
+        <li>
+          <a href="/products/electronics">Electronics</a>
+        </li>
+        <li>
+          <a href="/products/sports">Sports and Outdoors</a>
+        </li>
+        <li>
+          <a href="/products/toys">Toys</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<script>
+const nav = document.querySelector('nav')
+
+nav.addEventListener('click', e => {
+  if (e.target.classList.contains('mainnav-toggle-sub')) {
+    e.preventDefault()
+    const isOpen = e.target.getAttribute('aria-expanded') === "true"
+    e.target.setAttribute('aria-expanded', !isOpen);
+  }
+})
+</script>
