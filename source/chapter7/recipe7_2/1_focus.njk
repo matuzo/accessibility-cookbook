@@ -1,0 +1,157 @@
+---
+layout: page.njk
+title: Focus Management
+eleventyNavigation:
+  key: Focus Management
+  parent: Recipe 7.2
+---
+<style>
+  strong {
+    display: block;
+  }
+</style>
+
+<h1>Records</h1>
+
+<h2>Filter</h2>
+
+<form role="form" aria-label="Filter" id="filter">
+	<label for="artist">Artist</label>
+	<select id="artist" name="artist">
+		<option value="">All</option>
+		<option value="afi">AFI</option>
+		<option>Absolute Beginner</option>
+		<option>Akne Kid Joe</option>
+		<option>Bad Religion</option>
+		<option>Beastie Boys</option>
+		<option>Bilderbuch</option>
+		<option>Billy Joel</option>
+		<option>Bring me the Horizon</option>
+		<option>Dead Kennedys</option>
+		<option>Dendemann</option>
+		<option>Der Nino aus Wien</option>
+		<option>Dog Eat Dog</option>
+		<option>Dr. Dre</option>
+		<option>Eater</option>
+		<option>Idles</option>
+		<option>Minutemen</option>
+		<option>PUP</option>
+		<option>Rancid</option>
+		<option>The Eradicator</option>
+		<option>The Menzingers</option>
+	</select>
+
+	<fieldset>
+		<legend>Country</legend>
+
+    <input type="checkbox" name="country" id="country_at" value="at">
+    <label for="country_at">Austria</label>
+
+    <input type="checkbox" name="country" id="country_ca" value="ca">
+    <label for="country_ca">Canada</label>
+
+    <input type="checkbox" name="country" id="country_us" value="us">
+    <label for="country_us">USA</label>
+
+    <input type="checkbox" name="country" id="country_de" value="de">
+    <label for="country_de">Germany</label>
+
+    <input type="checkbox" name="country" id="country_uk" value="uk">
+    <label for="country_uk">United Kingdom</label>
+	</fieldset>
+
+	<fieldset>
+		<legend>Shipping</legend>
+
+    <input type="radio" name="shipping" id="shipping_eu" value="eu">
+    <label for="shipping_eu">Europe</label>
+
+    <input type="radio" name="shipping" id="shipping_world" value="worldwide">
+    <label for="shipping_world">Worldwide</label>
+
+    <input type="radio" name="shipping" id="shipping_us" value="us">
+    <label for="shipping_us">USA</label>
+	</fieldset>
+
+  <button>Search</button>
+</form>
+
+<div role="region" aria-labelledby="results_heading" id="results" tabindex="-1">
+  <h2 id="results_heading">Results</h2>
+
+  <ol>
+    {% for record in records %}
+      <li>
+        <strong>{{ record.title }} ({{ record.year }})</strong>
+        {{ record.artist }}
+      </li>
+    {% endfor %}
+  </ol>
+</div>
+
+<script>
+const form = document.getElementById("filter");
+const results = document.getElementById("results");
+const list = results.querySelector("ol");
+let records,
+filtered;
+
+function finishQuery() {
+	results.focus();
+}
+
+function showResults(data) {
+	list.innerHTML = "";
+
+	for (let i = 0; i < data.length; i++) {
+		const record = data[i];
+		const item = document.createElement("li");
+		const title = document.createElement("strong");
+		title.textContent = `${record.title} (${record.year})`;
+		item.append(title, record.artist);
+		list.append(item);
+	}
+}
+
+function filterForm(e) {
+	e.preventDefault();
+
+	const formData = new FormData(form);
+
+	filtered = records.filter((record) => {
+		const artist = formData.get("artist");
+		const countries = formData.getAll("country");
+		const shipping = formData.getAll("shipping");
+
+		if (artist && record.artist !== artist) {
+			return;
+		}
+
+		if (countries.length && !countries.includes(record.country)) {
+			return;
+		}
+
+		if (shipping.length && !shipping.includes(record.shipping)) {
+			return;
+		}
+
+		return true;
+	});
+
+	showResults(filtered);
+	finishQuery();
+}
+
+async function getRecords() {
+	const response = await fetch("/assets/data/records.json");
+	return await response.json();
+}
+
+getRecords().then((data) => {
+	records = data;
+	filtered = data;
+	
+	form.addEventListener("submit", filterForm);
+});
+
+</script>

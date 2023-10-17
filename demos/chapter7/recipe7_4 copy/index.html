@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<!-- TODO: Check lang attribute --> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Recipe 7.4 - Accessibility Cookbook</title>
+  
+  <script type="module">document.documentElement.classList.replace('no-js', 'js');</script>
+  
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header>
+  <a href="/">Accessibility CookBook Demos</a>
+</header>
+<main>
+  <h1>Recipe 7.4</h1>
+  
+
+
+<ol class="list">
+  
+  <li>
+    <a href="/chapter7/recipe7_4/1_sorting/">
+      Sorting
+    </a>
+
+    
+      <ol>
+      
+      </ol>
+    
+  </li>
+  
+</ol>
+
+
+<style>
+  strong {
+    display: block;
+  }
+</style>
+
+<h1>Records</h1>
+
+<h2>Filter</h2>
+
+<form role="form" aria-label="Filter" id="filter">
+	<label for="artist">Artist</label>
+	<select id="artist" name="artist">
+		<option value="">All</option>
+		<option value="afi">AFI</option>
+		<option>Absolute Beginner</option>
+		<option>Akne Kid Joe</option>
+		<option>Bad Religion</option>
+		<option>Beastie Boys</option>
+		<option>Bilderbuch</option>
+		<option>Billy Joel</option>
+		<option>Bring me the Horizon</option>
+		<option>Dead Kennedys</option>
+		<option>Dendemann</option>
+		<option>Der Nino aus Wien</option>
+		<option>Dog Eat Dog</option>
+		<option>Dr. Dre</option>
+		<option>Eater</option>
+		<option>Idles</option>
+		<option>Minutemen</option>
+		<option>PUP</option>
+		<option>Rancid</option>
+		<option>The Eradicator</option>
+		<option>The Menzingers</option>
+	</select>
+
+	<fieldset>
+		<legend>Country</legend>
+
+    <input type="checkbox" name="country" id="country_at" value="at">
+    <label for="country_at">Austria</label>
+
+    <input type="checkbox" name="country" id="country_ca" value="ca">
+    <label for="country_ca">Canada</label>
+
+    <input type="checkbox" name="country" id="country_us" value="us">
+    <label for="country_us">USA</label>
+
+    <input type="checkbox" name="country" id="country_de" value="de">
+    <label for="country_de">Germany</label>
+
+    <input type="checkbox" name="country" id="country_uk" value="uk">
+    <label for="country_uk">United Kingdom</label>
+	</fieldset>
+
+  <style>
+    fieldset:has([aria-expanded="true"]) div {
+      display:block;
+    }
+  </style>
+
+	<fieldset>
+		<legend>
+      <button type="button" class="toggle" aria-expanded="false">Format</button>
+    </legend>
+
+    <div hidden>
+      <input type="checkbox" name="format" id="form_lp">
+      <label for="form_lp">LP</label>
+
+      <input type="checkbox" name="format" id="form_cd">
+      <label for="form_cd">CD</label>
+
+      <input type="checkbox" name="format" id="form_cassette">
+      <label for="form_cassette">Cassette</label>
+    </div>
+	</fieldset>
+
+
+	<fieldset>
+		<legend>Shipping</legend>
+
+    <input type="radio" name="shipping" id="shipping_eu" value="eu">
+    <label for="shipping_eu">Europe</label>
+
+    <input type="radio" name="shipping" id="shipping_world" value="worldwide">
+    <label for="shipping_world">Worldwide</label>
+
+    <input type="radio" name="shipping" id="shipping_us" value="us">
+    <label for="shipping_us">USA</label>
+	</fieldset>
+
+  <fieldset>
+    <legend>Display</legend>
+    <button aria-pressed="true" aria-label="List">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
+      </svg>
+    </button>
+    <button aria-label="Grid">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"></path>
+      </svg>
+    </button>
+  </fieldset>
+
+  <div>
+    <label for="sorting">Sort by</label>
+    <select id="sorting">
+      <option>Release date</option>
+      <option>Name</option>
+    </select>
+  </div>
+
+  <button>Search</button>
+</form>
+
+<div role="region" aria-labelledby="results_heading" id="results" tabindex="-1">
+  <h2 id="results_heading">Results</h2>
+  <div role="status">Showing 40 of 40 records</div>
+
+  <ol>
+    
+      <li>
+        <strong>Die große Palmöllüge (2020)</strong>
+        Akne Kid Joe
+      </li>
+    
+      <li>
+        <strong>Post Human: Survial Horror (2020)</strong>
+        Bring me the Horizon
+      </li>
+    
+      <li>
+        <strong>Suicide Season (2008)</strong>
+        Bring me the Horizon
+      </li>
+    
+      <li>
+        <strong>Joy as an Act of Resistance (2018)</strong>
+        Idles
+      </li>
+    
+      <li>
+        <strong>Licensed to Ill (1986)</strong>
+        Beastie Boys
+      </li>
+    
+      <li>
+        <strong>Paul&#39;s Boutique (1989)</strong>
+        Beastie Boys
+      </li>
+    
+      <li>
+        <strong>Check Your Head (1992)</strong>
+        Beastie Boys
+      </li>
+    
+      <li>
+        <strong>Ill Communication (1994)</strong>
+        Beastie Boys
+      </li>
+    
+      <li>
+        <strong>Hello Nasty (1998)</strong>
+        Beastie Boys
+      </li>
+    
+      <li>
+        <strong>The Mix-Up (2007)</strong>
+        Beastie Boys
+      </li>
+    
+      <li>
+        <strong>To the 5 Boroughs (2004)</strong>
+        Beastie Boys
+      </li>
+    
+      <li>
+        <strong>Solid Gold Hits (2005)</strong>
+        Beastie Boys
+      </li>
+    
+      <li>
+        <strong>Hot Sauce Committee Part Two  (2011)</strong>
+        Beastie Boys
+      </li>
+    
+      <li>
+        <strong>Da Nich Für! (2019)</strong>
+        Dendemann
+      </li>
+    
+      <li>
+        <strong>2001 (1999)</strong>
+        Dr. Dre
+      </li>
+    
+      <li>
+        <strong>All Boro Kings (1994)</strong>
+        Dog Eat Dog
+      </li>
+    
+      <li>
+        <strong>Bambule (1998)</strong>
+        Absolute Beginner
+      </li>
+    
+      <li>
+        <strong>Ballot Result (1986)</strong>
+        Minutemen
+      </li>
+    
+      <li>
+        <strong>Magic Life (2017)</strong>
+        Bilderbuch
+      </li>
+    
+      <li>
+        <strong>PUP (2014)</strong>
+        PUP
+      </li>
+    
+      <li>
+        <strong>The Dream Is Over (2016)</strong>
+        PUP
+      </li>
+    
+      <li>
+        <strong>Morbid Stuff (2019)</strong>
+        PUP
+      </li>
+    
+      <li>
+        <strong>The Eradicator (2017)</strong>
+        The Eradicator
+      </li>
+    
+      <li>
+        <strong>…and out come the wolves (1995)</strong>
+        Rancid
+      </li>
+    
+      <li>
+        <strong>Piano Man (1973)</strong>
+        Billy Joel
+      </li>
+    
+      <li>
+        <strong>Turnstiles (1976)</strong>
+        Billy Joel
+      </li>
+    
+      <li>
+        <strong>52nd Street (1978)</strong>
+        Billy Joel
+      </li>
+    
+      <li>
+        <strong>The Stranger (1977)</strong>
+        Billy Joel
+      </li>
+    
+      <li>
+        <strong>Songs in the Attic (1981)</strong>
+        Billy Joel
+      </li>
+    
+      <li>
+        <strong>After The party (2017)</strong>
+        The Menzingers
+      </li>
+    
+      <li>
+        <strong>The Album (1977)</strong>
+        Eater
+      </li>
+    
+      <li>
+        <strong>Fresh Food for Rotting Vegetables (1980)</strong>
+        Dead Kennedys
+      </li>
+    
+      <li>
+        <strong>Suffer (1988)</strong>
+        Bad Religion
+      </li>
+    
+      <li>
+        <strong>Age of Unreason (2019)</strong>
+        Bad Religion
+      </li>
+    
+      <li>
+        <strong>Der Nino aus Wien (2018)</strong>
+        Der Nino aus Wien
+      </li>
+    
+      <li>
+        <strong>Wach (2017)</strong>
+        Der Nino aus Wien
+      </li>
+    
+      <li>
+        <strong>Immer noch besser als Spinat (2015)</strong>
+        Der Nino aus Wien
+      </li>
+    
+      <li>
+        <strong>Unser Österreich (2015)</strong>
+        Der Nino aus Wien
+      </li>
+    
+      <li>
+        <strong>Very proud of ya (1996)</strong>
+        AFI
+      </li>
+    
+      <li>
+        <strong>All Hollows EP (1999)</strong>
+        AFI
+      </li>
+    
+  </ol>
+</div>
+
+<nav aria-label="Select page">
+  <ol>
+    <li>
+      <a href="/filter.html/1">1</a>
+    </li>
+    <li>
+      <a href="/filter.html/2">2</a>
+    </li>
+    <li>
+      <a href="/filter.html/3">3</a>
+    </li>
+    <li>
+      <a href="/filter.html/4">4</a>
+    </li>
+    <li>
+      <a href="/filter.html/5">5</a>
+    </li>
+    <li>
+      <a href="/filter.html/6">7</a>
+    </li>
+    <li>
+      <a href="/filter.html/7">7</a>
+    </li>
+  </ol>
+</nav>
+
+
+
+<script>
+const form = document.getElementById("filter");
+const results = document.getElementById("results");
+const list = results.querySelector("ol");
+const liveRegion = document.querySelector("[role='status']")
+let records;
+
+function finishQuery() {
+	results.focus();
+  /*const total = records.length;
+  const found = list.querySelectorAll('li').length;
+  liveRegion.textContent = `Showing ${found} of ${total} records`*/
+}
+
+function showResults(data) {
+	list.innerHTML = "";
+
+	for (let i = 0; i < data.length; i++) {
+		const record = data[i];
+		const item = document.createElement("li");
+		const title = document.createElement("strong");
+		title.textContent = `${record.title} (${record.year})`;
+		item.append(title, record.artist);
+		list.append(item);
+	}
+}
+
+function filterForm(e) {
+	e.preventDefault();
+
+	const formData = new FormData(form);
+
+	const filtered = records.filter((record) => {
+		const artist = formData.get("artist");
+		const countries = formData.getAll("country");
+		const shipping = formData.getAll("shipping");
+
+		if (artist && record.artist !== artist) {
+			return;
+		}
+
+		if (countries.length && !countries.includes(record.country)) {
+			return;
+		}
+
+		if (shipping.length && !shipping.includes(record.shipping)) {
+			return;
+		}
+
+		return true;
+	});
+
+	showResults(filtered);
+	finishQuery();
+}
+
+async function getRecords() {
+	const response = await fetch("/assets/data/records.json");
+	return await response.json();
+}
+
+getRecords().then((data) => {
+	records = data;
+	form.addEventListener("submit", filterForm);
+});
+
+document.querySelector(".toggle").addEventListener("click", (e) => {
+	const button = e.target.closest("[aria-expanded]");
+	const isOpen = button.getAttribute("aria-expanded") === "false";
+
+	if (button) {
+		button.setAttribute("aria-expanded", isOpen);
+	}
+});
+</script>
+</main>
+</body>
+</html>
