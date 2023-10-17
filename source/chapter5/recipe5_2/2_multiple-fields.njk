@@ -1,0 +1,48 @@
+---
+layout: page.njk
+title: Labelling multiple fields
+eleventyNavigation:
+  key: Labelling multiple fields
+  parent: Recipe 5.2
+---
+<style>
+  table, td, th {
+    border: 1px solid; 
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  th, caption {
+    text-align: start;
+  }
+
+  th, td {
+    padding: 0.2em;
+  }
+</style>
+
+<table>
+  <caption>Players</caption>
+
+  <thead>
+    <tr>
+      <th id="username">Username</th>
+      <th id="name">Name</th>
+      <th id="level">Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" aria-labelledby="username" autocomplete="username"></td>
+      <td><input type="text" aria-labelledby="name" autocomplete="username"></td>
+      <td><input type="text" aria-labelledby="level" autocomplete="given-name"></td>
+    </tr>
+    <tr>
+      <td><input type="text" aria-labelledby="username" autocomplete="username"></td>
+      <td><input type="text" aria-labelledby="name" autocomplete="username"></td>
+      <td><input type="text" aria-labelledby="level" autocomplete="given-name"></td>
+    </tr>
+  </tbody>
+</table>
