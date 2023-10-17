@@ -6,11 +6,11 @@ eleventyNavigation:
   parent: Recipe 2.4
 date: 2024-01-01
 ---
-<button aria-expanded="true" aria-controls="main_nav">
-  Navigation
-</button> 
-
 <nav id="main_nav">
+  <button aria-expanded="false" aria-controls="main_nav">
+    Navigation
+  </button> 
+
   <ul>
     <li>
       <a href="#">Link 1</a>
@@ -22,7 +22,7 @@ date: 2024-01-01
 </nav>
 
 <style>
-  [aria-expanded="false"] + nav ul {
+  [aria-expanded="false"] + ul {
     display: none;
   }
 </style>

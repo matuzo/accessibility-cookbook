@@ -18,11 +18,11 @@
 </header>
 <main>
   <h1>expanded</h1>
-  <button aria-expanded="true" aria-controls="main_nav">
-  Navigation
-</button> 
+  <nav id="main_nav">
+  <button aria-expanded="false" aria-controls="main_nav">
+    Navigation
+  </button> 
 
-<nav id="main_nav">
   <ul>
     <li>
       <a href="#">Link 1</a>
@@ -34,7 +34,7 @@
 </nav>
 
 <style>
-  [aria-expanded="false"] + nav ul {
+  [aria-expanded="false"] + ul {
     display: none;
   }
 </style>

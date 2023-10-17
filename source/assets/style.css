@@ -14,7 +14,7 @@ a:visited {
   text-decoration: none;
 }
 
-:focus {
+:focus-visible {
   outline: 2px solid;
   outline-offset: 2px;
 }
