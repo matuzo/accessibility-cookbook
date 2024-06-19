@@ -1,7 +1,9 @@
-# Accessibility Cookbook demo files
+# Accessibility Cookbook
 
-All compiled demos are located in [demos](/demos).  
-The raw files are in [source](/source).
+Live demos: [https://accessibility-cookbook.com/code](accessibility-cookbook.com/code)
+
+All compiled pages are located in [/_site](/_site).  
+The raw files are in [/code](/code).
 
 ## Installation
 
@@ -15,7 +17,4 @@ npm install
 npm start 
 ```
 
-## Current status
-
-Done: Recipe 1.1 - 1.6  
-Open: Recipe 1.7 and Chapter 3, 4, 9, 10, 11
+After starting the website, you can access it at <http://localhost:8080>.
