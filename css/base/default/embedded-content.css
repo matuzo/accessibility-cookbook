@@ -1,0 +1,14 @@
+/*=============================================
+  Embedded content         
+  picture, img, iframe, video, audio
+=============================================*/
+
+@layer base.default {
+  img {
+    max-width: 100%;
+  }
+
+  video {
+    max-width: 100%;
+  }
+}

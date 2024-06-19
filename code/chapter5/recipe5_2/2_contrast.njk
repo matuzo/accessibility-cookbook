@@ -1,0 +1,27 @@
+---
+layout: sample.njk
+title: prefers-contrast
+eleventyNavigation:
+  key: prefers-contrast
+  parent: Recipe 5.2
+tags:
+  - chapters
+---
+<style>
+  html {
+    --blue: oklch(0.56 0.13 237.77);
+    --text: var(--blue);
+  }
+
+  @media (prefers-contrast: more) {
+    html {
+      --text: oklch(from var(--blue) calc(l - 16) c h)
+    }
+  }
+
+  body .sample {
+    color: var(--text);
+  }
+</style>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat et pariatur, neque exercitationem quasi quas nobis. Nostrum fuga reiciendis id repellat aliquid, aspernatur, odio officiis nemo quis non sunt! Veritatis?</p>

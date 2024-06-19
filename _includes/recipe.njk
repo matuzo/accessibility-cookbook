@@ -1,0 +1,28 @@
+---
+layout: cookbook.njk
+---
+{% set chapter = collections.chapters | eleventyNavigation %}
+{% for currentChapter in chapter %}
+  {% if currentChapter.key === eleventyNavigation.parent %}
+    <hgroup>
+      <h1>{{ title }}</h1>
+      <p>
+        <a href="/code/#{{ currentChapter.title | slug }}">
+          {{ currentChapter.title }}
+        </a>
+      </p>
+    </hgroup>
+  {% endif %}
+{% endfor %}
+
+{% set recipes = collections.chapters | eleventyNavigation(eleventyNavigation.key) %}
+
+<nav aria-label="Main" class="nav-main">
+  <ul>
+  {%- for entry in recipes %}
+    <li>
+      <a href="{{ entry.url }}" {% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
+    </li>
+  {%- endfor %}
+  </ul>
+</nav>

@@ -1,0 +1,36 @@
+---
+layout: sample.njk
+title: Visual Order
+eleventyNavigation:
+  key: Visual Order
+  parent: Recipe 6.5
+tags:
+  - chapters
+---
+<style>
+  .sample ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sample li:first-child {
+    order: 2; 
+  }
+
+  .sample li:nth-child(2) {
+    order: 3; 
+  }
+
+  .sample li:last-child {
+    order: 1; 
+  }
+</style>
+
+<ul>
+  <li><a href="#">One</a></li>
+  <li><a href="#">Two</a></li>
+  <li><a href="#">Three</a></li>
+</ul>

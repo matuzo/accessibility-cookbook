@@ -1,0 +1,44 @@
+---
+layout: sample.njk
+title: Simple Nav Styled
+eleventyNavigation:
+  key: Simple Nav Styled
+  parent: Recipe 7.2
+tags:
+  - chapters
+---
+<style>
+  html {
+    --text-color: hsl(0 0% 0%);
+    --highlight-color: hsl(209 56% 45%);
+  }
+  
+  .sample header a {
+    display: inline-block;	
+    font-size: 1.4rem;
+    padding: 0.2rem;
+  }
+
+  .sample header a:is(:link, :visited) {
+    border-block-end: 3px solid var(--border-color, transparent);
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .sample header a:focus-visible {
+    outline: 0.25em solid currentColor;
+    outline-offset: 0.125em;
+  }
+
+  .sample header [aria-current="page"] {
+    --border-color: var(--highlight-color);
+    --text-color: var(--highlight-color);
+  }
+</style>
+
+<header>
+  <a href="/home">Home</a>
+  <a href="/products" aria-current="page">Products</a>
+  <a href="/team">Team</a>
+  <a href="/contact">Contact</a>
+</header>

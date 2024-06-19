@@ -1,0 +1,49 @@
+---
+layout: sample.njk
+title: Focus Management
+eleventyNavigation:
+  key: Focus Management
+  parent: Recipe 3.7
+tags:
+  - chapters
+codeOnly: true
+---
+<header>
+  <a href="/">Accessibility CookBook Demos</a>
+  <nav>
+    <ul>
+      <li><a href="#page-home">Home</a></li>
+      <li><a href="#page-about">About</a></li>
+    </ul>
+   </nav>
+</header>
+  
+<main tabindex="-1" aria-labelledby="heading">
+  <h1>{{ title }}</h1>
+  {{ content | safe }}
+</main>
+
+<template id="page-home">
+  <h1 id="heading">Home</h1>
+</template>
+
+<template id="page-about">
+  <h1 id="heading">About Us</h1>
+</template>
+
+<script>
+  const main = document.querySelector("main");
+  const nav = document.querySelector("nav");
+
+  nav.addEventListener("click", (e) => {
+    if (e.target.nodeName === "A") {
+      e.preventDefault();
+      const id = e.target.getAttribute("href");
+      const page = document.querySelector(id);
+
+      main.innerHTML = "";
+      main.appendChild(page.content.cloneNode(true));
+      main.focus();
+    }
+  });
+ </script>

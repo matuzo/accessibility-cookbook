@@ -1,0 +1,25 @@
+---
+layout: sample.njk
+title: Download attribute in CSS
+eleventyNavigation:
+  key: Download attribute in CSS
+  parent: Recipe 3.3
+tags:
+  - chapters
+---
+<style>
+  .sample [download]::after {
+    content: "";
+    background: url('/images/demos/download.svg') no-repeat center;
+    block-size: 1em;
+    display: inline-block;
+    inline-size: 1em;
+  }
+</style>
+
+<p>
+  <!-- Download link to a pdf -->
+  <a href="/report.pdf" download>
+    Download the sustainability report 2022 (PDF, 29MB)
+  </a>
+</p>

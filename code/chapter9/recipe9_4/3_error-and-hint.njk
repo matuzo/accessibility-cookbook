@@ -1,0 +1,25 @@
+---
+layout: sample.njk
+title: Error message and hint
+eleventyNavigation:
+  key: Error message and hint
+  parent: Recipe 9.4
+tags:
+  - chapters
+---
+<style>
+  .error {
+    color: #D52A2A
+  }
+</style>
+
+<label for="password">Password</label>
+<div id="password-hint">At least 8 characters, uppercase and lowercase.</div>
+<input type="text" id="password" autocomplete="new-password" aria-describedby="password-hint password-error" aria-invalid="true">
+<div id="password-error" class="error">
+  <svg viewBox="0 0 640 640" width="16" fill="currentColor">
+    <path d="M640 128 512 0 320 192 128 0 0 128l192 192L0 
+    512l128 128 192-192 192 192 128-128-192-192 192-192z">
+  </svg>
+  The password must contain an uppercase letter.
+</div>

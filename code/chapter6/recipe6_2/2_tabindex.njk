@@ -1,0 +1,260 @@
+---
+layout: sample.njk
+title: Tabindex
+eleventyNavigation:
+  key: Tabindex
+  parent: Recipe 6.2
+tags:
+  - chapters
+---
+
+<div class="tabs">
+  <h3 id="tablist-1">Election results</h3>
+  <div role="tablist" aria-labelledby="tablist-1" class="automatic">
+  <button id="tab-1" type="button" role="tab" aria-selected="true"
+  aria-controls="tabpanel-1">
+  <span class="focus">Graph</span>
+  </button>
+  <button id="tab-2" type="button" role="tab" aria-selected="false"
+  aria-controls="tabpanel-2" tabindex="-1">
+  <span class="focus">Table</span>
+  
+  </button>
+  </div>
+  <div id="tabpanel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+    graph
+  </div>
+  <div id="tabpanel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2"
+  class="is-hidden">
+  table
+  </div>
+</div>
+
+<!-- Code from: https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/ -->
+<style>
+.tabs {
+  font-family: "lucida grande", sans-serif;
+}
+
+[role="tablist"] {
+  min-width: 100%;
+}
+
+[role="tab"],
+[role="tab"]:focus,
+[role="tab"]:hover {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  top: 2px;
+  margin: 0;
+  margin-top: 4px;
+  padding: 3px 3px 4px;
+  border: 1px solid hsl(219deg 1% 72%);
+  border-bottom: 2px solid hsl(219deg 1% 72%);
+  border-radius: 5px 5px 0 0;
+  background: hsl(220deg 20% 94%);
+  outline: none;
+  font-weight: bold;
+  max-width: 22%;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+}
+
+[role="tab"][aria-selected="true"] {
+  padding: 2px 2px 4px;
+  margin-top: 0;
+  border-width: 2px;
+  border-top-width: 6px;
+  border-top-color: rgb(36 116 214);
+  border-bottom-color: hsl(220deg 43% 99%);
+  background: hsl(220deg 43% 99%);
+}
+
+[role="tab"][aria-selected="false"] {
+  border-bottom: 1px solid hsl(219deg 1% 72%);
+}
+
+[role="tab"] span.focus {
+  display: inline-block;
+  margin: 2px;
+  padding: 4px 6px;
+}
+
+[role="tab"]:hover span.focus,
+[role="tab"]:focus span.focus,
+[role="tab"]:active span.focus {
+  padding: 2px 4px;
+  border: 2px solid rgb(36 116 214);
+  border-radius: 3px;
+}
+
+[role="tabpanel"] {
+  padding: 5px;
+  border: 2px solid hsl(219deg 1% 72%);
+  border-radius: 0 5px 5px;
+  background: hsl(220deg 43% 99%);
+  min-height: 10em;
+  width: 100%;
+  overflow: auto;
+}
+
+[role="tabpanel"].is-hidden {
+  display: none;
+}
+
+[role="tabpanel"] p {
+  margin: 0;
+}
+
+</style>
+
+<script>
+  /*
+ *   This content is licensed according to the W3C Software License at
+ *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+
+ By obtaining and/or copying this work, you (the licensee) agree that you have read, understood, and will comply with the following terms and conditions.
+
+Permission to copy, modify, and distribute this work, with or without modification, for any purpose and without fee or royalty is hereby granted, provided that you include the following on ALL copies of the work or portions thereof, including modifications:
+
+The full text of this NOTICE in a location viewable to users of the redistributed or derivative work.
+Any pre-existing intellectual property disclaimers, notices, or terms and conditions. If none exist, the W3C Software and Document Short Notice should be included.
+Notice of any changes or modifications, through a copyright statement on the new code or document such as "This software or document includes material copied from or derived from [title and URI of the W3C document]. Copyright © [YEAR] W3C® (MIT, ERCIM, Keio, Beihang)."
+ *
+ *   File:   tabs-automatic.js
+ *
+ *   Desc:   Tablist widget that implements ARIA Authoring Practices
+ */
+
+'use strict';
+
+class TabsAutomatic {
+  constructor(groupNode) {
+    this.tablistNode = groupNode;
+
+    this.tabs = [];
+
+    this.firstTab = null;
+    this.lastTab = null;
+
+    this.tabs = Array.from(this.tablistNode.querySelectorAll('[role=tab]'));
+    this.tabpanels = [];
+
+    for (var i = 0; i < this.tabs.length; i += 1) {
+      var tab = this.tabs[i];
+      var tabpanel = document.getElementById(tab.getAttribute('aria-controls'));
+
+      tab.tabIndex = -1;
+      tab.setAttribute('aria-selected', 'false');
+      this.tabpanels.push(tabpanel);
+
+      tab.addEventListener('keydown', this.onKeydown.bind(this));
+      tab.addEventListener('click', this.onClick.bind(this));
+
+      if (!this.firstTab) {
+        this.firstTab = tab;
+      }
+      this.lastTab = tab;
+    }
+
+    this.setSelectedTab(this.firstTab, false);
+  }
+
+  setSelectedTab(currentTab, setFocus) {
+    if (typeof setFocus !== 'boolean') {
+      setFocus = true;
+    }
+    for (var i = 0; i < this.tabs.length; i += 1) {
+      var tab = this.tabs[i];
+      if (currentTab === tab) {
+        tab.setAttribute('aria-selected', 'true');
+        tab.removeAttribute('tabindex');
+        this.tabpanels[i].classList.remove('is-hidden');
+        if (setFocus) {
+          tab.focus();
+        }
+      } else {
+        tab.setAttribute('aria-selected', 'false');
+        tab.tabIndex = -1;
+        this.tabpanels[i].classList.add('is-hidden');
+      }
+    }
+  }
+
+  setSelectedToPreviousTab(currentTab) {
+    var index;
+
+    if (currentTab === this.firstTab) {
+      this.setSelectedTab(this.lastTab);
+    } else {
+      index = this.tabs.indexOf(currentTab);
+      this.setSelectedTab(this.tabs[index - 1]);
+    }
+  }
+
+  setSelectedToNextTab(currentTab) {
+    var index;
+
+    if (currentTab === this.lastTab) {
+      this.setSelectedTab(this.firstTab);
+    } else {
+      index = this.tabs.indexOf(currentTab);
+      this.setSelectedTab(this.tabs[index + 1]);
+    }
+  }
+
+  /* EVENT HANDLERS */
+
+  onKeydown(event) {
+    var tgt = event.currentTarget,
+      flag = false;
+
+    switch (event.key) {
+      case 'ArrowLeft':
+        this.setSelectedToPreviousTab(tgt);
+        flag = true;
+        break;
+
+      case 'ArrowRight':
+        this.setSelectedToNextTab(tgt);
+        flag = true;
+        break;
+
+      case 'Home':
+        this.setSelectedTab(this.firstTab);
+        flag = true;
+        break;
+
+      case 'End':
+        this.setSelectedTab(this.lastTab);
+        flag = true;
+        break;
+
+      default:
+        break;
+    }
+
+    if (flag) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  }
+
+  onClick(event) {
+    this.setSelectedTab(event.currentTarget);
+  }
+}
+
+// Initialize tablist
+
+window.addEventListener('load', function () {
+  var tablists = document.querySelectorAll('[role=tablist].automatic');
+  for (var i = 0; i < tablists.length; i++) {
+    new TabsAutomatic(tablists[i]);
+  }
+});
+
+</script>
+        

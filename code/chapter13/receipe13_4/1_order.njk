@@ -1,0 +1,67 @@
+---
+layout: sample.njk
+title: DOM order
+eleventyNavigation:
+  key: DOM order
+  parent: Recipe 13.4
+tags:
+  - chapters
+---
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 12rem);
+    grid-auto-rows: 100px;
+    grid-gap: 1rem;
+
+    grid-auto-flow: dense;
+  }
+
+  .image1, .image3 {
+    grid-row-end: span 3;
+  }
+
+  .image4 {
+    grid-column: span 2;
+  }
+
+  .image5, .image9 {
+    grid-row: span 2;
+  }
+
+  .image7, .image8 {
+    grid-column: 2 / span 2;
+  }
+
+  .grid img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+</style>
+
+<div class="grid">
+  <a href="#" class="image1"><img src="/images/demos/image_1.jpg" alt="Train on a track near buildings"></a>
+  <a href="#" class="image2"><img src="/images/demos/image_2.jpg" alt="Cold juicy beverage on a table"></a>
+  <a href="#" class="image3"><img src="/images/demos/image_3.jpg" alt="Yellow floating mailbox on brown concrete wall"></a>
+  <a href="#" class="image4"><img src="/images/demos/image_4.jpg" alt="Yellow leaves on a tree in autumn"></a>
+  <a href="#" class="image5"><img src="/images/demos/image_5.jpg" alt="Stacked boxes of fruit"></a>
+  <a href="#" class="image6"><img src="/images/demos/image_6.jpg" alt="Close-up of a horse's closed eye"></a>
+  <a href="#" class="image7"><img src="/images/demos/image_7.jpg" alt="Sunsetvibes in Berlin"></a>
+  <a href="#" class="image8"><img src="/images/demos/image_8.jpg" alt="Slices of apple and dolden rings on a plate"></a>
+  <a href="#" class="image9"><img src="/images/demos/image_9.jpg" alt="A gecko climbing downwards"></a>
+</div>
+
+{# 
+https://www.pexels.com/photo/train-on-track-near-buildings-18642137/
+https://www.pexels.com/photo/yellow-leaves-on-tree-in-autumn-15086124/
+https://www.pexels.com/photo/slices-of-apple-and-golden-rings-lying-on-a-plate-18444579/
+https://www.pexels.com/photo/close-up-of-closed-eye-of-horse-18324587/
+https://www.pexels.com/photo/yellow-postbriefkasten-floating-mailbox-on-brown-concrete-wall-217250/
+https://www.pexels.com/photo/cold-juicy-beverage-18322030/
+https://www.pexels.com/photo/sunsetvibes-in-berlin-18799511/
+https://www.pexels.com/photo/gecko-18876570/
+https://www.pexels.com/photo/abundance-of-fruit-in-boxes-15777319/
+#}

@@ -1,0 +1,31 @@
+@layer base.api {
+  html {
+    /* 
+      Variables for space toggles
+      https://lea.verou.me/blog/2020/10/the-var-space-hack-to-toggle-multiple-values-with-one-custom-property/
+    */
+    --o-on: initial;
+    --o-off: ;
+
+    /*
+      Cyclic Dependency Space Toggles for the color scheme
+      https://kizu.dev/cyclic-toggles/
+    */
+    /* Color Scheme */
+    --o-color-scheme: var(--o-color-scheme-light);
+    --o-color-scheme-light: var(--o-color-scheme,);
+    --o-color-scheme-dark: var(--o-color-scheme,);
+
+    /* layout */
+    --o-layout: var(--o-layout-a);
+    --o-layout-a: var(--o-layout,);
+    --o-layout-b: var(--o-layout,);
+
+    /* theme */
+    --o-theme: var(--o-theme-a);
+    --o-theme-a: var(--o-theme,);
+    --o-theme-b: var(--o-theme,);
+    --o-theme-1: var(--o-theme,);
+    --o-theme-2: var(--o-theme,);
+  }
+}

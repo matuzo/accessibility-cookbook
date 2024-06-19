@@ -1,0 +1,24 @@
+---
+layout: sample.njk
+title: Details element styled
+eleventyNavigation:
+  key: Details element styled
+  parent: Recipe 8.2
+tags:
+  - chapters
+---
+<style>
+  .sample summary::marker {
+    content: "+ ";
+  }
+
+  .sample details[open] summary::marker {
+    content: "- ";
+  }
+</style>
+
+<details>
+  <summary>Show details</summary>
+  
+  <p>Detailed content goes here…</p>
+</details>

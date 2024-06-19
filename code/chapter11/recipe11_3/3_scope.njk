@@ -1,0 +1,85 @@
+---
+layout: sample.njk
+title: Linked rows
+eleventyNavigation:
+  key: Linked rows
+  parent: Recipe 11.3
+tags:
+  - chapters
+---
+<table>
+  <caption>Total scores Group A</caption>
+    <tr>
+      <th>Name</th>
+      <th>Q1</th>
+      <th>Q2</th>
+      <th>Q3</th>
+      <th>Q4</th>
+    </tr>
+    <tr>
+      <td scope="row"><a href="#1">Michael</a></td>
+      <td>47</td>
+      <td>28</td>
+      <td>91</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <td scope="row"><a href="#2">Robert</a></td>
+      <td>97</td>
+      <td>13</td>
+      <td>42</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <td scope="row"><a href="#3">Dominik</a></td>
+      <td>29</td>
+      <td>28</td>
+      <td>19</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td scope="row"><a href="#4">David</a></td>
+      <td>61</td>
+      <td>11</td>
+      <td>29</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <td scope="row"><a href="#5">Markus</a></td>
+      <td>72</td>
+      <td>70</td>
+      <td>73</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td scope="row"><a href="#6">Paul</a></td>
+      <td>122</td>
+      <td>100</td>
+      <td>87</td>
+      <td>69</td>
+    </tr>
+</table>
+
+<style>
+  table {
+    overflow: hidden;
+  }
+
+  tr:has(a):is(:hover, :focus-within) {
+    background: #eee;
+  }
+
+  td {
+    position: relative;
+  }
+
+  table a::before {
+    content: "";
+    cursor: pointer;
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    z-index: 1;
+  }
+</style>
+

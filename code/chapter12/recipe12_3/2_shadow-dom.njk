@@ -1,0 +1,30 @@
+---
+layout: sample.njk
+title: Closed Shadow DOM
+eleventyNavigation:
+  key: Closed Shadow DOM
+  parent: Recipe 12.3
+tags:
+  - chapters
+---
+<the-button></the-button>
+<script>
+class TheButton extends HTMLElement {
+  constructor() {
+    super();
+    this._shadow = this.attachShadow({ 
+      mode: "closed" <!--1-->
+    });
+
+    const button = document.createElement("button");
+    button.textContent = "Hello World";
+    this._shadow.append(button);
+  }
+}
+
+customElements.define("the-button", TheButton);
+
+const theButton = document.querySelector('the-button');
+console.log(theButton.shadowRoot.querySelectorAll('button').length)
+// returns “Cannot read properties of null (reading ‘querySelectorAll’)”
+</script>

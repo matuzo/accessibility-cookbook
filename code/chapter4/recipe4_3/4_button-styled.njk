@@ -1,0 +1,36 @@
+---
+layout: sample.njk
+title: Styled button
+eleventyNavigation:
+  key: Styled button
+  parent: Recipe 4.3
+tags:
+  - chapters
+---
+<style>
+  .sample button {
+    --_l: 0.47;
+  
+    background: oklch(var(--_l) 0.05 195.6);
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: inherit;
+    padding: 0.4em 0.9em;
+    border-radius: 3px;
+    border: 0;
+    min-width: 7rem;
+  }
+
+  .sample button:is(:hover, :focus-visible) {
+    --_l: 0.27;
+  }
+
+  .sample button:focus-visible {
+    outline: 0.1em solid oklch(var(--_l) 0.05 195.6);
+    outline-offset: 0.1em;
+  }
+</style>
+
+<button type="button">
+  Download
+</button>

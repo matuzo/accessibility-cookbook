@@ -1,0 +1,21 @@
+/*=============================================
+  Forms    
+  form, label, input, button, select, textarea,
+  output, progress, meter, fieldset, legend
+=============================================*/
+
+@layer base.default {
+  label {
+    font-weight: bold;
+    display: block;
+  }
+
+  input + label {
+    display: inline;
+    font-weight: normal;
+  }
+
+  input:not([type="button"], [type="reset"], [type="image"], [type="radio"], [type="checkbox"]) {
+    display: block;
+  }
+}

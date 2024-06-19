@@ -1,0 +1,19 @@
+/**
+* reset - Classic reset styles to get a somewhat uniform base styling across browsers
+* base - Base styling of mostly element and attribute selectors
+* third-party - Anything coming from the outside
+* components - Empty in olivia.css but gives component authors a space to add components to
+* utility - Utility and helper classes
+* shame - An option to override stuff you don't have control over need to clean-up later
+*/
+@layer reset, base, third-party, components, utility, shame;
+
+@layer base {
+  /**
+   * settings - Holds the default values for colors, fonts, spacing, etc. (no rules, only custom properties)
+   * api - Exposes settings to the outside (no rules, only custom properties)
+   * default - Actual base styling
+   * layout - Styles for the different layouts
+   */
+  @layer settings, api, reset, default, layout;
+}

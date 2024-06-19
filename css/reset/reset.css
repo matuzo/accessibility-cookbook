@@ -1,0 +1,67 @@
+/**
+ * Classic reset styles to get a somewhat uniform base styling across browsers
+ */
+@layer reset {
+  /* Switch to easier box sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* 
+   * Unset margins on the body
+   */
+  body {
+    margin: unset;
+    min-block-size: 100vh;
+  }
+
+  /* 
+   * Unset margins on all elements 
+   */
+  *:not(dialog) {
+    margin-block-end: unset;
+  }
+
+  *:first-child {
+    margin-block-start: unset;
+  }
+
+  /* 
+   * Balance text wrapping on headings
+   * See https://piccalil.li/blog/a-more-modern-css-reset/
+   */
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+
+  /* 
+   * Make images easier to work with
+   * See https://piccalil.li/blog/a-more-modern-css-reset/
+   */
+  img,
+  picture {
+    max-inline-size: 100%;
+    display: block;
+  }
+
+  /* 
+   * Inherit fonts for inputs and buttons
+   * See https://piccalil.li/blog/a-more-modern-css-reset/
+   */
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  /*
+   * Ensure that [hidden] is really hidden
+   */
+  [hidden] {
+    display: none !important;
+  }
+
+  :is(ol, ul)[role="list"] {
+    list-style-type: none;
+  }
+}

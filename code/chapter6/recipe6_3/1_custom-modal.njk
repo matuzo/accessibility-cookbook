@@ -1,0 +1,83 @@
+---
+layout: sample.njk
+title: Custom Modal
+eleventyNavigation:
+  key: Custom Modal
+  parent: Recipe 6.3
+tags:
+  - chapters
+---
+
+<style>
+  .sample [role="dialog"] {
+    align-items: center;
+    background: rgb( 0 0 0 / 0.2);
+    inset: 0;
+    justify-content: center;
+    margin: auto;
+    position: fixed;
+  }
+
+  .sample [role="dialog"]:not([hidden]) {
+    display: flex;
+  }
+
+  .sample [role="dialog"] > div {
+    background: rgb(255 255 255);
+    box-sizing: border-box;
+    max-width: 40rem;
+    padding: 2rem;
+    width: 90vw;
+  }
+
+  .sample :focus-visible {
+    outline: 4px solid #123456;
+    outline-offset: 4px;
+  }
+
+  .sample [role="dialog"]:focus-visible {
+    outline-offset: -8px;
+  }
+</style>
+
+<button class="open">Login</button>
+
+<div role="dialog" aria-modal="true" hidden aria-labelledby="heading">
+  <div>
+    <button class="close">Close</button>
+    
+    <h1 id="heading" tabindex="-1">Login</h1>
+  </div>
+</div>
+
+<script>
+  const dialogOpen = document.querySelector('.open')
+  const dialogClose = document.querySelector('.close')
+  const dialog = document.querySelector('[role="dialog"]')
+  const heading = dialog.querySelectorAll('[tabindex="-1"]')[0]
+  let trigger
+
+  dialogOpen.addEventListener('click', open)
+  dialogClose.addEventListener('click', close)
+
+  function open() {
+    trigger = document.activeElement
+    dialogToggle()
+  }
+
+  function close () {
+    dialogToggle()
+  }
+
+function dialogToggle() {
+  const isOpen = !dialog.hasAttribute('hidden')
+  
+  if (!isOpen) {
+    dialog.removeAttribute('hidden')
+    heading.focus()
+  } else {
+    dialog.setAttribute('hidden', 'hidden')
+    trigger.focus()
+  }
+}
+</script>

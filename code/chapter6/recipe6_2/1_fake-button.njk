@@ -1,0 +1,36 @@
+---
+layout: sample.njk
+title: "Bad practice: Fake Button"
+eleventyNavigation:
+  key: Fake Button
+  parent: Recipe 6.2
+tags:
+  - chapters
+---
+<style>
+  .sample :is(button, [role="button"]) {
+    background: #123456;
+    color: #FFFFFF;
+    border: none;
+    display: inline-block;
+    padding: 0.5em 1rem;
+    font-family: inherit;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .sample :focus-visible {
+    outline: 4px solid #123456;
+    outline-offset: 4px;
+  }
+</style>
+
+<!-- Focusable and keyboard accessible by default-->
+<button>
+  Open
+</button>
+
+<!-- Not focusable and not keyboard accessible -->
+<div role="button">
+  Open
+</div>

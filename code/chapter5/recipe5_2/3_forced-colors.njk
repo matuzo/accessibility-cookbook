@@ -1,0 +1,22 @@
+---
+layout: sample.njk
+title: forced-colors
+eleventyNavigation:
+  key: forced-colors
+  parent: Recipe 5.2
+tags:
+  - chapters
+---
+<style>
+.sample button {
+  border: none;
+}
+
+@media (forced-colors: active) {
+  .sample button {
+    border: 1px solid transparent;
+  }
+}
+</style>
+
+<button>Button</button>

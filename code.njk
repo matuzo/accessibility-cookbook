@@ -1,0 +1,52 @@
+---
+layout: cookbook.njk
+title: Code
+eleventyNavigation:
+  key: Code
+tags:
+  - pages
+---
+
+<header>
+  <hgroup>
+    <h1>Code Samples</h1>
+    <p>Overview</p>
+  </hgroup>
+</header>
+
+{# {% for chapter in collections.chapter %}
+  <h2>
+      {{ chapter.data.title }}
+  </h2>
+
+  {% for chapter in collections.chapter1 %}
+    <a href="{{ chapter.url }}">
+      {{ chapter.data.title }}
+    </a>
+  {% endfor %}
+{% endfor %} #}
+
+
+
+<section>
+  {% set chapters = collections.chapters | eleventyNavigation %}
+
+  <nav aria-label="Main" class="nav-main">
+    {%- for chapter in chapters %}
+      <section>
+        <h2>{{ chapter.title }}</h2>
+
+        <ol>
+          {%- for recipe in chapter.children %}
+            <li>
+              <a href="{{ recipe.url }}">
+                {{ recipe.title }}
+              </a>
+            </li>
+          {%- endfor %}
+        </ol>
+      </section>
+    {%- endfor %}
+    </ul>
+  </nav>
+</section>

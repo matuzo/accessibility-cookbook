@@ -1,0 +1,59 @@
+---
+layout: sample.njk
+title: CSS
+eleventyNavigation:
+  key: CSS
+  parent: Recipe 5.5
+tags:
+  - chapters
+---
+<style>
+  div {
+    overflow: hidden;
+  }
+
+  .banner {
+    --animation: fade;
+
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    font-size: 3rem;
+    padding: 0rem 1.5rem;
+    translate: var(--position) 0;
+    animation: var(--animation) 3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    opacity: var(--opacity);
+  }
+
+  @media(prefers-reduced-motion: no-preference) {
+    .banner {
+      --animation: move;
+    }
+  }
+
+  @property --position {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0;
+  }
+
+  @property --opacity {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 1;
+  }
+
+  @keyframes move {
+    from { --position: 100vw; }
+    to   { --position: 0; }
+  }
+
+  @keyframes fade {
+    from   { --opacity: 0; }
+    to   { --opacity: 1; }
+  }
+</style>
+
+<div>
+  <strong class="banner">Hello World!</strong>
+</div>

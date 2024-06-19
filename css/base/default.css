@@ -1,0 +1,17 @@
+@layer base.default {
+  html {
+    font-size: var(--o-font-size);
+  }
+  
+  :target {
+    scroll-margin-block-start: 12rem;
+  }
+
+
+
+
+
+
+
+
+}

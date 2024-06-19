@@ -1,0 +1,30 @@
+---
+layout: sample.njk
+title: prefers-color-scheme
+eleventyNavigation:
+  key: prefers-color-scheme
+  parent: Recipe 5.2
+tags:
+  - chapters
+codeOnly: true
+---
+<style>
+  html {
+    --dark: oklch(37.34% 0.081 236.96);
+    --light: oklch(98.89% 0.005 17.25);
+    --background: var(--light);
+    --text: var(--dark);
+  }
+
+  @media(prefers-color-scheme: dark) {
+    html {
+      --background: var(--dark);
+      --text: var(--light);
+    }
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text);
+  }
+</style>

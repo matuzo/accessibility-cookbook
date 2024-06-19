@@ -1,0 +1,17 @@
+/*=============================================
+  Text-level semantics
+   a, em, strong, small, s, cite, q, dfn, abbr,
+   ruby, rt, rp, data, time, code, var, samp, 
+   kbd, sub and sup, i, b, u, mark, bdi, bdo, 
+   span, br, wbr, ins, del
+=============================================*/
+
+@layer base.default {
+  a:is(:link, :visited) {
+    color: var(--o-link-color);
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}

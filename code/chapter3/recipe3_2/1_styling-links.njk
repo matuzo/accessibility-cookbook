@@ -1,0 +1,39 @@
+---
+layout: sample.njk
+title: Styling links
+eleventyNavigation:
+  key: Styling links
+  parent: Recipe 3.2
+tags:
+  - chapters
+---
+<style>
+  .sample a:link {
+    color: blue;
+    text-decoration: underline;
+  }
+  
+  .sample a:visited {
+    color: rebeccapurple;
+  }
+
+  .sample a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+  
+  .sample a:hover {
+    text-decoration: none;
+  }
+
+  .sample a:active {
+    color: red;
+  }
+</style>
+
+<p>
+  <!-- Link to an external site -->
+  <a href="https://www.oreilly.com/products/books-videos.html">
+    O'Reilly books and videos
+  </a>
+</p>

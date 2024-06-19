@@ -1,0 +1,27 @@
+---
+layout: sample.njk
+title: Light DOM
+eleventyNavigation:
+  key: Light DOM
+  parent: Recipe 12.1
+tags:
+  - chapters
+---
+<label for="email">E-Mail</label>
+
+<the-input>
+  <input type="email" id="email" />
+</the-input>
+
+<script>
+  class TheInput extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.innerHTML = `<slot></slot>`
+  }
+}
+
+customElements.define("the-input", TheInput);
+</script>

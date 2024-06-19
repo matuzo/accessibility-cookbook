@@ -1,0 +1,107 @@
+---
+layout: sample.njk
+title: Progress indicator
+eleventyNavigation:
+  key: Progress indicator
+  parent: Recipe 9.6
+tags:
+  - chapters
+---
+<style>
+  .sample ol {
+    display: flex;
+    list-style-type: "";
+    margin: 1.4em 0 2.8em;
+    padding: 0;
+    gap: 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    counter-reset: steps;
+    position: relative;
+  }
+
+  .sample ol::before {
+    content: "";
+    display: block;
+    height: 2px;
+    background: #000;
+    position: absolute;
+    inset-block-end: calc(-0.7em - 2px);
+    width: 100%;
+  }
+
+  .sample li {
+    counter-increment: steps;
+    position: relative;
+  }
+
+  .sample li::before {
+    content: counter(steps);
+    height: 1.4em;
+    width: 1.4em;
+    font-size: 1.1rem;
+    padding: 0.1em;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    inset-inline: 0;
+    inset-block-start: 4px;
+    position: absolute;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%);
+  }
+
+  .sample li:first-child::before {
+    margin-inline-start: 0;
+  }
+
+  .sample li:last-child::before {
+    margin-inline-end: 0;
+  }
+
+  .sample a:is(:link, :visited) {
+    color: #000;
+  }
+
+  .sample [aria-current="step"] {
+    color: #3c843f;
+  }
+
+  .sample [aria-current="step"]::before {
+    background: #3c843f;
+    height: 1.8em;
+    width: 1.8em;
+    inset-block-start: calc(2px - 0.4em);
+  }
+
+  .sample ol + h1 {
+    margin-block-start: 2em;
+  }
+</style>
+<ol>
+  <li>
+    <a href="/checkout/shipping.html">
+      Shipping address
+    </a>
+  </li>
+  <li aria-current="step">
+    <span>
+      Payment
+    </span>
+  </li>
+  <li>
+    <span>
+      Review order
+    </span>
+  </li>
+  <li>
+    <span>
+      Finish
+    </span>
+  </li>
+</ol>
+
+<h1>Payment (Step 2 of 4)</h1>

@@ -1,0 +1,28 @@
+---
+layout: sample.njk
+title: Inaccessible Code
+eleventyNavigation:
+  key: Inaccessible Code
+  parent: Recipe 13.1
+tags:
+  - chapters
+---
+<style>
+  body {
+    color: #af8e8e;
+  }
+</style>
+
+<h2 aria-label="Registration">Sign Up</h2>
+
+<form aria-labelledby="h2">
+  <input type="text" name="username">
+
+  <button>
+    <img src="send.jpg">
+  </button>
+
+  <p>
+    <a href="#" aria-hidden="true">Disclaimer</a>
+  </p>
+</form>

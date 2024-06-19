@@ -1,0 +1,91 @@
+/*=============================================
+  Grouping content        
+  p, hr, pre, blockquote, ol, ul, menu, li,
+  dl, dt,  dd,  figure, figcaption, main, 
+  search, div
+=============================================*/
+
+@layer base.default {
+  /*----------  <main>  ----------*/
+
+  main *:where(:not(:last-child, label, dialog)) {
+    margin-block-end: 1rem;
+  }
+
+  main > *:not(img, video, audio, header) {
+    max-width: 60ch;
+  }
+
+  /*----------  <ol>, <ul>, <li>  ----------*/
+
+  ol li {
+    margin-block-end: 0.5rem;
+  }
+
+  /*----------  <blockquote>  ----------*/
+
+  blockquote {
+    --blockquote-padding: 1.5em 1em 0 2em;
+    --blockquote-quote-size: 4rem;
+
+    margin: 0;
+    padding: var(--blockquote-padding);
+    position: relative;
+  }
+
+  @media(min-width: 768px) {
+    blockquote {
+      --blockquote-padding: 1.5em 2em 0 3.5em;
+      --blockquote-quote-size: 6rem;
+    }
+  }
+
+  blockquote::before {
+    color: var(--o-highlight-color);
+    content: open-quote;
+    display: block;
+    font-size: var(--blockquote-quote-size);
+    inset: 0 auto auto 0;
+    line-height: 1;
+    position: absolute;
+    text-align: center;
+  }
+
+ blockquote::after {
+    content: close-quote;
+    visibility: hidden;
+    position: absolute;
+  }
+
+  blockquote + p {
+    --blockquote-cite-margin-inline: 2.5em;
+
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+    margin-inline-start: var(--blockquote-cite-margin-inline);
+    margin-block-end: 4em;
+    font-size: 0.7em;
+    line-height: 1.4;
+  }
+
+  @media(min-width: 768px) {
+    blockquote + p {
+      --blockquote-cite-margin-inline: 5.5em;
+    }
+  }
+
+  blockquote + p span {
+    display: block;
+  }
+
+  blockquote + p strong {
+    display: block;
+    font-size: 1.3em;
+  }
+
+  blockquote + p img {
+    border-radius: 50%;
+    margin: 0;
+  }
+}

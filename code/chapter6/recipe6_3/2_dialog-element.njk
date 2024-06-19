@@ -1,0 +1,28 @@
+---
+layout: sample.njk
+title: Native Modal
+eleventyNavigation:
+  key: Native Modal
+  parent: Recipe 6.3
+tags:
+  - chapters
+---
+
+<button class="open">Login</button>
+
+<dialog tabindex="-1" aria-labelledby="heading">
+  <form method="dialog">
+    <button>Close</button>
+  </form>
+  
+  <h1 id="heading">Login</h1>
+</dialog>
+
+<script>
+  const dialogOpen = document.querySelector('.open')
+  const dialog = document.querySelector('dialog')
+
+  dialogOpen.addEventListener('click', e => {
+    dialog.showModal()
+  })
+</script>

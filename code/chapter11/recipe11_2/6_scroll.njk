@@ -1,0 +1,73 @@
+---
+layout: sample.njk
+title: Scrollable tables
+eleventyNavigation:
+  key: Scrollable tables
+  parent: Recipe 11.2
+tags:
+  - chapters
+---
+<style>
+  [role="region"][tabindex="0"] {
+    overflow: auto;
+  }
+</style>
+
+<div role="region" aria-labelledby="scores_caption" tabindex="0">
+  <table>
+    <caption id="scores_caption">Total scores Group A</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Q1</th>
+        <th>Q2</th>
+        <th>Q3</th>
+        <th>Q4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">Michael</td>
+        <td>47</td>
+        <td>28</td>
+        <td>91</td>
+        <td>65</td>
+      </tr>
+      <tr>
+        <td scope="row">Robert</td>
+        <td>97</td>
+        <td>13</td>
+        <td>42</td>
+        <td>61</td>
+      </tr>
+      <tr>
+        <td scope="row">Dominik</td>
+        <td>29</td>
+        <td>28</td>
+        <td>19</td>
+        <td>57</td>
+      </tr>
+      <tr>
+        <td scope="row">David</td>
+        <td>61</td>
+        <td>11</td>
+        <td>29</td>
+        <td>59</td>
+      </tr>
+      <tr>
+        <td scope="row">Markus</td>
+        <td>72</td>
+        <td>70</td>
+        <td>73</td>
+        <td>44</td>
+      </tr>
+      <tr>
+        <td scope="row">Paul</td>
+        <td>122</td>
+        <td>100</td>
+        <td>87</td>
+        <td>69</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

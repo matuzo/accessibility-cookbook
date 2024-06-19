@@ -1,0 +1,25 @@
+---
+layout: sample.njk
+title: Inline error
+eleventyNavigation:
+  key: Inline error
+  parent: Recipe 9.4
+tags:
+  - chapters
+---
+<style>
+  .error {
+    color: #D52A2A
+  }
+</style>
+<label for="email">Your e-mail address</label>
+<input type="email" id="email" required aria-invalid="true" value="kubidus21@" 
+       aria-describedby="error">
+<div id="error" class="error">
+  <svg viewBox="0 0 640 640" width="16" fill="currentColor">
+    <path d="M640 128 512 0 320 192 128 0 0 128l192 192L0 
+    512l128 128 192-192 192 192 128-128-192-192 192-192z">
+  </svg>
+
+  Please enter a valid e-mail address
+</div>

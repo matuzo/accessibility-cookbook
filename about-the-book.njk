@@ -1,0 +1,262 @@
+---
+layout: cookbook.njk
+title: About the book
+eleventyNavigation:
+  key: About
+tags:
+  - pages
+---
+
+<header>
+  <h1>About the Web Accessibility Cookbook</h1>
+</header>
+
+<p>
+  The Web Accessibility Cookbook focuses on the technical side of web accessibility.<br>
+  You’ll learn how to build common patterns written accessibly in HTML, CSS, and JavaScript. You’ll also start to understand how good and bad practices affect people, especially those with disabilities.
+</p>
+
+<blockquote>
+  Great for quick answers on what pattern is best to use, with good explanations why, for those who want to know more.
+</blockquote>
+
+<p>
+  <img src="/images/avatar_sara.jpeg" alt="" width="55">
+  <span>
+    <strong>Sara Joy Wallen</strong>
+    Web Developer, Pirate Ship Software GmbH
+  </span>
+</p>
+
+<p>
+  It will be available in print, PDF, EPub, and HTML on the <a href="https://www.oreilly.com/online-learning/">O'Reilly Learning Platform</a>.
+</p>
+
+<section>
+  <h2>Table of contents</h2>
+
+  <ol>
+    <li><a href="#chapter1">Structuring Documents</a></li>
+    <li><a href="#chapter2">Structuring Pages</a></li>
+    <li><a href="#chapter3">Linking Content</a></li>
+    <li><a href="#chapter4">Performing Actions</a></li>
+    <li><a href="#chapter5">Styling content</a></li>
+    <li><a href="#chapter6">Managing Focus</a></li>
+    <li><a href="#chapter7">Navigating Sites</a></li>
+    <li><a href="#chapter8">Toggling Content Visibility</a></li>
+    <li><a href="#chapter9">Constructing Forms</a></li>
+    <li><a href="#chapter10">Filtering Data</a></li>
+    <li><a href="#chapter11">Presenting Tabular Data</a></li>
+    <li><a href="#chapter12">Creating custom elements</a></li>
+    <li><a href="#chapter13">Debugging Barriers</a></li>
+  </ol>
+</section>
+
+
+<section id="chapter1">
+  <h2>1. Structuring Documents</h2>
+
+  <p>
+    Chapter 1 focuses on those parts of your websites that recur and are similar or identical on every page. You will learn how to set up the <code>&lt;head&gt;</code> and create a base structure in the <code>&lt;body&gt;</code>.
+  </p>
+
+  <h3>Recipes</h3>
+
+  <ol>
+    <li>Define the natural language</li>
+    <li>Describe the document</li>
+    <li>Set the viewport width</li>
+    <li>Optimize rendering order</li>
+    <li>Structure the document</li>
+  </ol>
+</section>
+
+<section id="chapter2">
+  <h2>2. Structuring Pages</h2>
+
+  <p>In Chapter 2, you leave the base structure of your website and move into the page itself. The foundation of a well-designed page is grouping elements, landmarks, and headings. You learn how to use &lt;section&gt;, &lt;nav&gt;, or &lt;article&gt; efficiently and how to combine them with headings to create a sound document outline.</p>
+  
+  <h3>Recipes</h3>
+
+  <ol>
+    <li>Create navigation landmarks</li>
+    <li>Create form landmarks</li>
+    <li>Label landmarks</li>
+    <li>Structure the main content</li>
+    <li>Create a sound document outline</li>
+    <li>Present content in order</li>
+  </ol>
+</section>
+
+<section id="chapter3">
+  <h2>3. Linking Content</h3>
+  
+  <p>Hyperlinks are the basis of the World Wide Web. That is why Chapter 3, which is all about linking content, is one of the book’s most extensive chapters. It analyzes the characteristics of the &lt;a&gt; element and helps you apply it efficiently. You’ll learn how to link different types of content, images, and groups of elements. One recipe focuses on client-side routing and what to consider when linking pages in a single application. Another addresses how to visually style links.</p>
+
+  <h3>Recipes</h3>
+
+  <ol>
+    <li>Pick the right element</li>
+    <li>Style links</li>
+    <li>Create download links</li>
+    <li>Create email links</li>
+    <li>Link images</li>
+    <li>Inform users of changing context</li>
+    <li>Fix client-side rendering</li>
+    <li>Add links to groups of elements</li>
+  </ol>
+</section>
+
+<section id="chapter4">
+  <h2>4. Performing Actions</h2>
+
+  <p>Chapter 4 is similar to the previous chapter, except that it puts the &lt;button&gt; element in the spotlight. You’ll learn different techniques for labeling buttons and how to use them with the most common ARIA attributes.</p>
+  
+  <h3>Recipes</h3>
+  <ol>
+    <li id="#recipe41">Pick the right element</li>
+    <li id="#recipe42">Label buttons clearly</li>
+    <li id="#recipe43">Remove default button styles</li>
+    <li id="#recipe44">Add states and properties</li>
+    <li id="#recipe45">Don’t disable buttons</li>
+  </ol>
+</section>
+
+<section id="chapter5">
+  <h2>5. Styling content</h2>
+
+  <p>In Chapter 5, we move from HTML to CSS and discuss color, contrast, animation, units, and sizes. You’ll learn how to write CSS in a way that respects users’ preferences.</p>
+  
+  <h3>Recipes</h3>
+  <ol>
+    <li id="#recipe51">Work with color</li>
+    <li id="#recipe52">Respect user preferences</li>
+    <li id="#recipe53">Work with units and sizes</li>
+    <li id="#recipe54">Preserve semantic information and operability</li>
+    <li id="#recipe55">Add motion and animation</li>
+  </ol>
+</section>
+
+<section id="chapter6">
+  <h2>6. Managing Focus</h2>
+  
+  <p>Keyboard accessibility is an important topic in this book. Chapter 6 outlines everything you need to know about focus styling, focus management, and DOM order.</p>
+  
+  <h3>Recipes</h3>
+  <ol>
+    <li id="#recipe61">Provide focus styles</li>
+    <li id="#recipe62">Make elements focusable</li>
+    <li id="#recipe63">Move focus</li>
+    <li id="#recipe64">Keep focus contained</li>
+    <li id="#recipe65">Preserve order</li>
+    <li id="#recipe66">Allow users to skip elements</li>
+  </ol>
+</section>
+
+<section id="chapter7">
+  <h2>7. Navigating Sites</h2>
+
+  <p>Almost every website has a main navigation. Chapter 7 dissects a typical site navigation and explains every part in detail, explaining why certain semantic elements can be useful for screen reader users. You’ll learn how to create responsive navigation with submenus and understand the difference between navigations and menus.</p>
+  
+  <h3>Recipes</h3>
+  <ol>
+    <li id="#recipe71">Create a Main Navigation</li>
+    <li id="#recipe72">Highlight the active page</li>
+    <li id="#recipe73">Announce the number of items</li>
+    <li id="#recipe74">Provide quick access</li>
+    <li id="#recipe75">Hide the navigation on narrow viewports</li>
+    <li id="#recipe76">Add a slide-in animation</li>
+    <li id="#recipe77">Add sub menus</li>
+    <li id="#recipe78">Avoid confusion with menus</li>
+  </ol>
+</section>
+
+<section id="chapter8">
+  <h2>8. Toggling Content Visibility</h2>
+
+  <p>There are different ways of hiding content in CSS and HTML. Chapter 8 discusses their pros and cons. You’ll learn how to create disclosure widgets and accordions. The chapter also compares the native &lt;details&gt; element with custom solutions.</p>
+  
+  <h3>Recipes</h3>
+  <ol>
+    <li id="#recipe81">Hide content</li>
+    <li id="#recipe82">Create a native disclosure widget</li>
+    <li id="#recipe83">Create a custom disclosure widget</li>
+    <li id="#recipe84">Create groups of disclosure widgets</li>
+  </ol>
+</section>
+
+<section id="chapter9">
+  <h2>9. Constructing Forms</h2>
+
+  <p>Chapter 9 focuses on a complex topic: forms. It starts with general best practices for creating forms and gets more specific with every recipe. You’ll learn the most important aspects of form design: labeling, description of form elements, error management, and grouping.</p>
+
+  <h3>Recipes</h3>
+  <ol>
+    <li id="#recipe91">Create forms</li>
+    <li id="#recipe92">Identify form elements</li>
+    <li id="#recipe93">Describe form fields</li>
+    <li id="#recipe94">Highlight erroneous fields</li>
+    <li id="#recipe95">Group fields in a form</li>
+    <li id="#recipe96">Split forms into steps</li>
+  </ol>
+</section>
+
+<section id="chapter10">
+  <h2>10. Filtering Data</h2>
+
+  <p>In Chapter 10, you’ll learn how to build a filter form from start to finish. You’ll also be introduced to dynamic feedback for screen reader users, pagination, and sorting.</p>
+  
+  <h3>Recipes</h3>
+  <ol>
+    <li id="#recipe101">Create a form</li>
+    <li id="#recipe102">Filter the data</li>
+    <li id="#recipe103">Paginate results</li>
+    <li id="#recipe104">Sort and display results</li>
+    <li id="#recipe105">Group filters</li>
+  </ol>
+</section>
+
+<section id="chapter11">
+  <h2>11. Presenting Tabular Data</h2>
+
+  <p>Tables are misused so much that many developers are afraid of working with them. Chapter 11 demystifies the &lt;table&gt; element and presents best practices and guidance for using it. It also explains how to sort tables and combine them with interactive elements.</p>
+  
+  <h3>Recipes</h3>
+  <ol>
+    <li id="#recipe111">Pick the right elements</li>
+    <li id="#recipe112">Structure tables</li>
+    <li id="#recipe113">Add interactive elements</li>
+    <li id="#recipe114">Sort columns</li>
+  </ol>
+</section>
+
+<section id="chapter12">
+  <h2>12. Creating custom elements</h2>
+  
+  <p>Custom elements are an exciting standard and, paired with other APIs, a powerful tool for creating web components. Chapter 12 explains everything you must consider regarding accessibility when working with them.</p>
+
+  <h3>Recipes</h3>
+  <ol>
+    <li id="#recipe121">Working with IDs</li>
+    <li id="#recipe122">Creating ARIA references</li>
+    <li id="#recipe123">Focus elements in Shadow DOM</li>
+    <li id="#recipe124">Debugging and testing</li>
+    <li id="#recipe125">Enforce best practices</li>
+  </ol>
+</section>
+
+<section id="chapter13">
+  <h2>13. Debugging Barriers</h2>
+  
+  <p>Trust is good; control is better. Chapter 13 introduces you to automatic testing and debugging tools that help you identify, debug, and fix accessibility issues.</p>
+
+  <h3>Recipes</h3>
+  <ol>
+    <li id="#recipe131">Find accessibility issues automatically</li>
+    <li id="#recipe132">Explore the accessibility tree</li>
+    <li id="#recipe133">Debug roles, names, properties, and states</li>
+    <li id="#recipe134">Visualize tabbing order</li>
+    <li id="#recipe135">Emulate color deficiencies, reduced motion, and more</li>
+    <li id="#recipe136">Write custom debugging rules</li>
+  </ol>
+</section>

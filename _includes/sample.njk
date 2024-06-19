@@ -1,0 +1,36 @@
+---
+layout: cookbook.njk
+---
+
+{% set parents = collections.chapters | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
+<header>
+  <hgroup>
+    <h1>{{ title }}</h1>
+    <p>
+      {% set recipe = parents[parents.length - 1] %}
+      <a href="{{ recipe.url }}">
+        {{ recipe.title }}
+      </a>
+    </p>
+  </hgroup>
+</header>
+
+<section>
+  {% if not codeOnly %}
+    <h2>Sample:</h2>
+    <div class="sample">
+      {{ content | safe }}
+    </div>
+  {% endif %}
+
+  <h2>Code:</h2>
+    {% highlight "html" %}
+      {{ content | replace(".sample", "") | safe }}
+    {% endhighlight %}
+</section>
+
+{% if codepen %}
+  <a href="{{ codepen }}">
+    Live Demo on CodePen
+  </a>
+{% endif %}

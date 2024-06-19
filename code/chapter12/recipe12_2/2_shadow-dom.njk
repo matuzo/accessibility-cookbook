@@ -1,0 +1,31 @@
+---
+layout: sample.njk
+title: Shadow DOM
+eleventyNavigation:
+  key: Shadow DOM
+  parent: Recipe 12.2
+tags:
+  - chapters
+---
+<the-input></the-input>
+
+<script>
+  class TheInput extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.innerHTML = `
+      <label for="date">Birthday</label>
+      <input type="date" id="date" aria-describedby="hint">
+      <the-hint>
+        <p id="hint">
+          Format: DD.MM.YYYY
+        </p>
+      </the-hint>
+    `;
+	}
+}
+
+customElements.define("the-input", TheInput);
+</script>

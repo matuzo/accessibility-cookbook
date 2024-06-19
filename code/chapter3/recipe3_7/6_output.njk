@@ -1,0 +1,27 @@
+---
+layout: sample.njk
+title: output
+eleventyNavigation:
+  key: output
+  parent: Recipe 3.7
+tags:
+  - chapters
+---
+<button>Change name</button>
+
+<div>
+  <output>
+  My name is <span>Claudia</span>
+  </output>
+</div>
+
+<script>
+  const button = document.querySelector('button');
+  const names = ['Moritz', 'Valentina', 'Johanna', 'Magdalena', 'Victoria'];
+  const name = document.querySelector('.sample span');
+
+  button.addEventListener('click', e => {
+    const random = Math.floor(Math.random() * names.length);
+    name.textContent = names[random];
+  })
+</script>

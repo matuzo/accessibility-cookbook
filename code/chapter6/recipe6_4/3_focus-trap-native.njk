@@ -1,0 +1,29 @@
+---
+layout: sample.njk
+title: Native Focus Containment
+eleventyNavigation:
+  key: Native Focus Containment
+  parent: Recipe 6.4
+tags:
+  - chapters
+---
+<button class="open">Login</button>
+
+<dialog tabindex="-1" aria-labelledby="heading">
+  <form method="dialog">
+    <button>Close</button>
+  </form>
+  
+  <h1 id="heading">Login</h1>
+
+  <a href="#">A link</a>
+</dialog>
+
+<script>
+  const button = document.querySelector('button')
+  const dialog = button.nextElementSibling;
+
+  button.addEventListener('click', e => {
+    dialog.showModal();
+  })
+</script>

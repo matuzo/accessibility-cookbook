@@ -1,0 +1,20 @@
+---
+title: Chapter 1
+layout: chapter.njk
+date: 2024-01-01
+eleventyNavigation:
+  key: Chapter 1
+  title: Chapter 1
+tags:
+  - chapters
+---
+{% set chapters = collections.chapters | eleventyNavigation('Chapter 1') %}
+<nav aria-label="Main" class="nav-main">
+  <ul>
+  {%- for entry in chapters %}
+    <li>
+      <a href="{{ entry.url }}" {% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
+    </li>
+  {%- endfor %}
+  </ul>
+</nav>

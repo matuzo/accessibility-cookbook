@@ -1,0 +1,19 @@
+---
+layout: sample.njk
+title: "Bad practice: Tabindex 2"
+eleventyNavigation:
+  key: Tabindex 2
+  parent: Recipe 6.2
+tags:
+  - chapters
+---
+<style>
+  .sample :focus-visible {
+    outline: 4px solid #123456;
+    outline-offset: 4px;
+  }
+</style>
+
+<button tabindex="2">Button 1</button>
+<button tabindex="1">Button 2</button>
+<button tabindex="3">Button 3</button>

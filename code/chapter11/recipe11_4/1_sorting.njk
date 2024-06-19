@@ -1,0 +1,203 @@
+---
+layout: sample.njk
+title: Sorting
+eleventyNavigation:
+  key: Sorting
+  parent: Recipe 11.4
+tags:
+  - chapters
+---
+<style>
+  .visually-hidden {
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  td {
+    min-width: 8rem;
+  }
+
+  caption {
+    font-weight: bold;
+  }
+
+  .sort {
+    all: unset;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .sort path {
+    fill: transparent;
+    stroke: currentColor;
+    stroke-width: 12;
+  }
+
+  [aria-sort="ascending"] path:first-child {
+    fill: currentColor;
+  }
+
+  [aria-sort="descending"] path:last-child {
+    fill: currentColor;
+  }
+</style>
+
+<div role="status" class="visually-hidden"></div>
+
+<table>
+  <caption>Scores Group A</caption>
+  <thead>
+    <tr>
+      <th>
+        <button class="sort">
+          Name
+          <svg width="13" viewBox="0 0 126 171">
+            <path d="M62.7 3.9 6 70l114-.5z"/>
+            <path d="M63 166.5 6 100.6h114z"/>
+          </svg>
+        </button>
+      </th>
+      <th>
+        <button class="sort">
+          Score
+          <svg width="13" viewBox="0 0 126 171">
+            <path d="M62.7 3.9 6 70l114-.5z"/>
+            <path d="M63 166.5 6 100.6h114z"/>
+          </svg>
+        </button>
+      </th>
+      <th>
+        <button class="sort">
+          Country
+          <svg width="13" viewBox="0 0 126 171">
+            <path d="M62.7 3.9 6 70l114-.5z"/>
+            <path d="M63 166.5 6 100.6h114z"/>
+          </svg>
+        </button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Michael</td>
+      <td>27</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <td>Robert</td>
+      <td>7</td>
+      <td>Croatia</td>
+    </tr>
+    <tr>
+      <td>Andreas</td>
+      <td>53</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <td>Dominik</td>
+      <td>19</td>
+      <td>Croatia</td>
+    </tr>
+    <tr>
+      <td>David</td>
+      <td>21</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <td>Heinrich</td>
+      <td>12</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <td>Markus</td>
+      <td>14</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <td>Paul</td>
+      <td>42</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <td>Nicolas</td>
+      <td>3</td>
+      <td>Spain</td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  const table = document.querySelector("table");
+  const liveRegion = document.querySelector("[role='status']");
+  let toSort;
+  let direction = "ascending";
+
+  table.addEventListener("click", (e) => {
+    const button = e.target.closest("thead button");
+
+    if (button) {
+      const cell = button.parentNode;
+      const tbody = table.querySelector("tbody");
+      const rows = tbody.querySelectorAll("tr");
+
+      toSort = [];
+      getRows(cell, rows);
+      updateButton(cell);
+      sortRows(rows);
+      updateLiveRegion();
+    }
+  });
+
+  const getRows = (cell, rows) => {
+    const index = [...cell.parentNode.children].indexOf(cell);
+
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      const cells = row.querySelectorAll("td");
+
+      toSort.push([cells[index].innerText, row.cloneNode(true)]);
+    }
+  };
+
+  const sortRows = (rows) => {
+    toSort.sort(function (a, b) {
+      const comp = a[0].localeCompare(b[0], "en", { numeric: true });
+      return comp;
+    });
+
+    if (direction === "descending") {
+      toSort.reverse();
+    }
+
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      row.parentNode.replaceChild(toSort[i][1], row);
+    }
+
+    console.log(direction);
+  };
+
+  const updateButton = (cell) => {
+    const sortedColumn = table.querySelector("[aria-sort]");
+    if (sortedColumn && sortedColumn !== cell) {
+      sortedColumn.removeAttribute("aria-sort");
+    }
+
+    direction =
+      cell.getAttribute("aria-sort") === "ascending" ? "descending" : "ascending";
+    cell.setAttribute("aria-sort", direction);
+  };
+
+  const updateLiveRegion = () => {
+    liveRegion.textContent = `Sorted ${direction}`;
+
+    setTimeout(() => {
+      liveRegion.textContent = ``;
+    }, 1000);
+  };
+</script>

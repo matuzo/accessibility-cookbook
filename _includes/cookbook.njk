@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>{{ title }}</title>
+
+  <link rel="stylesheet" href="/assets/css/olivia.css">
+  <link rel="stylesheet" href="/assets/css/reset/reset.css">
+  <link rel="stylesheet" href="/assets/css/base/settings.css">
+  <link rel="stylesheet" href="/assets/css/base/api.css">
+  <link rel="stylesheet" href="/assets/css/base/default.css">
+  <link rel="stylesheet" href="/assets/css/base/default/sections.css">
+  <link rel="stylesheet" href="/assets/css/base/default/grouping-content.css">
+  <link rel="stylesheet" href="/assets/css/base/default/text-level-semantics.css">
+  <link rel="stylesheet" href="/assets/css/base/default/embedded-content.css">
+  <link rel="stylesheet" href="/assets/css/base/default/tabular-data.css">
+  <link rel="stylesheet" href="/assets/css/base/default/forms.css">
+  <link rel="stylesheet" href="/assets/css/base/default/interactive-elements.css">
+  <link rel="stylesheet" href="/assets/css/base/layout.css">
+  <link rel="stylesheet" href="/assets/css/cookbook.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <link rel="stylesheet" href="/assets/css/philippa.css">
+
+  <meta name="description" content="The Web Accessibility Cookbook provides you with dozens of recipes to help you build common components on the web.">
+  <meta name="theme-color" content="#803006">
+  <meta name="og:image" content="https://accessibility-cookbook.com/images/og.jpg">
+
+  <link rel="canonical" href="https://accessibility-cookbook.com{{ page.url }}">
+</head>
+<body>
+  <header class="site-header">
+  <a href="#content" class="skip-link">Skip to content</a>
+
+    <div>
+      {% set navPages = collections.pages | eleventyNavigation %}
+      <nav aria-label="Main" class="nav-main">
+        <ul>
+        {%- for entry in navPages %}
+          <li>
+            <a href="{{ entry.url }}" {% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title | safe }}</a>
+          </li>
+        {%- endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="content">
+  {{ content | safe  }}
+
+  </main>
+  <footer>
+    <div>
+      &copy; 2024 Manuel Matuzović
+    </div>
+  </footer>
+</body>
+</html>

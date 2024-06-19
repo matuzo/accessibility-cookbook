@@ -1,0 +1,301 @@
+---
+layout: sample.njk
+title: Display
+eleventyNavigation:
+  key: Display
+  parent: Recipe 10.4
+tags:
+  - chapters
+---
+<style>
+  .sample strong {
+    display: block;
+  }
+
+  .sample .pagination ol {
+    display: flex;
+    list-style: none;
+    gap: 0.5em;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sample .pagination a {
+    align-items: center;
+    aspect-ratio: 1;
+    border: 1px solid;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    width: 2em;
+  }
+
+  .sample .pagination a:is([aria-current="page"], :hover, :focus-visible) {
+    background-color: #3c843f;
+    color: #ffffff;
+  }
+
+  .sample .visually-hidden {
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .sample [aria-pressed="true"] {
+    background-color: #3c843f;
+    color: #ffffff;
+  }
+
+  .sample .grid {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fill, 20rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sample .grid li {
+    aspect-ratio: 1;
+    border: 1px solid;
+    padding: 1em;
+  }
+</style>
+
+<h1>Records</h1>
+
+<h2>Filter</h2>
+
+<form role="form" aria-label="Filter" id="filter">
+  <label for="artist">Artist</label>
+  <select id="artist" name="artist">
+    <option value="">All</option>
+    <option>AFI</option>
+    <option>Absolute Beginner</option>
+    <option>Akne Kid Joe</option>
+    <option>Bad Religion</option>
+    <option>Beastie Boys</option>
+    <option>Bilderbuch</option>
+    <option>Billy Joel</option>
+    <option>Bring me the Horizon</option>
+    <option>Dead Kennedys</option>
+    <option>Dendemann</option>
+    <option>Der Nino aus Wien</option>
+    <option>Dog Eat Dog</option>
+    <option>Dr. Dre</option>
+    <option>Eater</option>
+    <option>Idles</option>
+    <option>Minutemen</option>
+    <option>PUP</option>
+    <option>Rancid</option>
+    <option>The Eradicator</option>
+    <option>The Menzingers</option>
+  </select>
+
+  <fieldset>
+    <legend>Country</legend>
+
+    <input type="checkbox" name="country" id="country_at" value="at">
+    <label for="country_at">Austria</label>
+
+    <input type="checkbox" name="country" id="country_ca" value="ca">
+    <label for="country_ca">Canada</label>
+
+    <input type="checkbox" name="country" id="country_us" value="us">
+    <label for="country_us">USA</label>
+
+    <input type="checkbox" name="country" id="country_de" value="de">
+    <label for="country_de">Germany</label>
+
+    <input type="checkbox" name="country" id="country_uk" value="uk">
+    <label for="country_uk">United Kingdom</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Shipping</legend>
+
+    <input type="radio" name="shipping" id="shipping_eu" value="eu">
+    <label for="shipping_eu">Europe</label>
+
+    <input type="radio" name="shipping" id="shipping_world" value="worldwide">
+    <label for="shipping_world">Worldwide</label>
+
+    <input type="radio" name="shipping" id="shipping_us" value="us">
+    <label for="shipping_us">USA</label>
+  </fieldset>
+
+  <fieldset id="display">
+    <legend>Display</legend>
+    <button type="button" aria-pressed="true" aria-label="List" data-display="list">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
+      </svg>
+    </button>
+    <button type="button" aria-pressed="false" aria-label="Grid" data-display="grid">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"></path>
+      </svg>
+    </button>
+  </fieldset>
+  <div id="live-region-display" hidden>Showing results as [type]</div>
+
+  <div>
+    <label for="sorting">Sort by</label>
+    <select id="sorting">
+      <option value="year">Release date</option>
+      <option value="artist" selected>Artist</option>
+    </select>
+  </div>
+
+  <button>Search</button>
+</form>
+
+<div role="region" aria-labelledby="results_heading" id="results" tabindex="-1">
+  <h2 id="results_heading">Results</h2>
+  <div role="status" class="visually-hidden"></div>
+
+  <ol class="list">
+    {% for record in records.slice(0, 10) %}
+      <li>
+        <strong>{{ record.title }} ({{ record.year }})</strong>
+        {{ record.artist }}
+      </li>
+    {% endfor %}
+  </ol>
+</div>
+
+<nav aria-label="Select page" class="pagination">
+  <ol>
+    <li>
+      <a href="/filter.html/1" aria-current="page">1</a>
+    </li>
+    <li>
+      <a href="/filter.html/2">2</a>
+    </li>
+    <li>
+      <a href="/filter.html/3">3</a>
+    </li>
+    <li>
+      <a href="/filter.html/4">4</a>
+    </li>
+  </ol>
+</nav>
+
+<div id="live-region-sorting" hidden>Sorted by [type]</div>
+<div id="live-region-display" hidden>Showing results as [type]</div>
+
+<script>
+const form = document.getElementById("filter");
+const results = document.getElementById("results");
+const list = results.querySelector("ol");
+const sorting = form.querySelector("#sorting");
+const display = form.querySelector("#display");
+const sortingMessage = document.querySelector("#live-region-sorting");
+const displayMessage = document.querySelector("#live-region-display");
+const liveRegion = document.querySelector("[role='status']")
+
+let records,
+filtered;
+
+function finishQuery() {
+  results.focus();
+}
+
+function showResults() {
+  list.innerHTML = "";
+  for (let i = 0; i < filtered.length; i++) {
+    const record = filtered[i];
+    const item = document.createElement("li");
+    const title = document.createElement("strong");
+    title.textContent = `${record.title} (${record.year})`;
+    item.append(title, record.artist);
+    list.append(item);
+  }
+}
+
+function filterForm(e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  filtered = records.filter((record) => {
+    const artist = formData.get("artist");
+    const countries = formData.getAll("country");
+    const shipping = formData.getAll("shipping");
+
+    if (artist && record.artist !== artist) {
+      return;
+    }
+
+    if (countries.length && !countries.includes(record.country)) {
+      return;
+    }
+
+    if (shipping.length && !shipping.includes(record.shipping)) {
+      return;
+    }
+
+    return true;
+  });
+
+  showResults();
+  finishQuery();
+}
+
+async function getRecords() {
+  const response = await fetch("/assets/data/records.json");
+  return await response.json();
+}
+
+function sortRecords(type) {
+  function compare(a,b) {
+    let fieldA = a[type];
+    let fieldB = b[type];
+
+    if (typeof fieldA === 'string') {
+      fieldA = fieldA.toLowerCase()
+      fieldB = fieldB.toLowerCase()
+    }
+    
+    if (fieldA < fieldB){
+      return -1;
+    }
+    if (fieldA > fieldB){
+      return 1;
+    }
+    return 0;
+  }
+
+  filtered.sort(compare);
+}
+
+getRecords().then((data) => {
+  records = data;
+  filtered = data;
+  
+  form.addEventListener("submit", filterForm);
+  sorting.addEventListener("change", e => {
+    const type = e.target.value;
+    sortRecords(type);
+    showResults();
+    liveRegion.textContent = sortingMessage.textContent.replace('[type]', type);
+  });
+
+display.addEventListener('click', e => {
+  const button = e.target.closest('button'); 
+  const previous = display.querySelector('[aria-pressed="true"]'); 
+  
+  if (button) {
+    button.setAttribute('aria-pressed', true); 
+    list.classList.replace(previous.dataset.display, button.dataset.display);
+    previous.removeAttribute('aria-pressed');
+    liveRegion.textContent = displayMessage.textContent.replace('[type]', button.getAttribute('aria-label'));
+  }
+})
+});
+
+</script>

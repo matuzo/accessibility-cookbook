@@ -1,0 +1,59 @@
+---
+layout: sample.njk
+title: Buttons
+eleventyNavigation:
+  key: Buttons
+  parent: Recipe 13.3
+tags:
+  - chapters
+---
+
+<style>
+  .btn {
+    display: inline-block;
+    border: none;
+    line-height: 1;
+    font-size: 1rem;
+    font-family: inherit;
+    text-decoration: none;
+    background: #123456;
+    padding: 1em;
+  }
+
+  .btn, .btn:is(:link, :visited) {
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 4px solid #123456;
+    outline-offset: 2px;
+  }
+</style>
+
+<button class="btn">
+  Button 1 
+</button>
+
+<a class="btn" href="#">
+  Button 2
+</a>
+
+<div class="btn">
+  Button 3
+</div>
+
+<div class="btn" tabindex="0">
+  Button 4
+</div>
+
+<div class="btn" role="button" tabindex="0">
+  Button 5
+</div>
+
+<script>
+  document.body.addEventListener('click', e => {
+    if (e.target.nodeName === 'BUTTON' || e.target.classList.contains('btn')) {
+      alert(`Trust me, I'm a button!`)
+    }
+  })
+</script>

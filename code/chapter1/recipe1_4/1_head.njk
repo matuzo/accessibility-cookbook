@@ -1,0 +1,54 @@
+---
+layout: sample.njk
+title: Head rendering order
+eleventyNavigation:
+  key: Head rendering order
+  parent: Recipe 1.4
+tags:
+  - chapters
+codeOnly: true
+---
+<head>
+  <!-- Character encoding -->
+  <meta charset="UTF-8">
+
+  <!-- Viewport meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSP headers -->
+  <meta http-equiv="Content-Security-Policy" content="upgrage-insecure-requests">
+  
+  <!-- Page title -->
+  <title>Johanna's toy store</title>
+
+  <!-- preconnect -->
+  <link rel="preconnect" href="#" />
+
+  <!-- Asynchronous JavaScript -->
+  <script src="" async></script>
+
+  <!-- CSS that includes @import -->
+  <style>
+    @import "file.css";
+  </style>  
+
+  <!-- Synchronous JavaScript -->
+  <script src=""></script>
+
+  <!-- Synchronous CSS -->
+  <link rel="stylesheet" href="/assets/style.css">  
+
+  <!-- preload -->
+  <link rel="preload" href="#" />
+
+  <!-- Deferred JavaScript -->
+  <script type="module">document.documentElement.classList.replace('no-js', 'js');</script>
+  <script src="" defer></script>
+
+  <!-- prefetch / prerender -->
+  <link rel="prefetch" href="#" />
+  <link rel="prerender" href="#" />
+
+  <!-- Everything else (meta tags, icons, open graphs, etc.) -->
+  <meta name="description" content="">
+</head>

@@ -1,0 +1,24 @@
+---
+layout: sample.njk
+title: DOM Order
+eleventyNavigation:
+  key: DOM Order
+  parent: Recipe 6.5
+tags:
+  - chapters
+---
+<style>
+  .sample ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<ul>
+  <li><a href="#" tabindex="2">One</a></li>
+  <li><a href="#" tabindex="3">Two</a></li>
+  <li><a href="#" tabindex="1">Three</a></li>
+</ul>

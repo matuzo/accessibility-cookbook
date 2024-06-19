@@ -1,0 +1,22 @@
+---
+layout: sample.njk
+title: Toggle Button
+eleventyNavigation:
+  key: Toggle Button
+  parent: Recipe 4.4
+date: 2024-01-02
+tags:
+  - chapters
+---
+<button type="button" aria-pressed="true">
+  Add to favourites
+</button>
+
+<script>
+  const button = document.querySelector('button')
+
+  button.addEventListener('click', e => {
+    const isPressed = button.getAttribute('aria-pressed') === "true"
+    button.setAttribute('aria-pressed', !isPressed)
+  })
+</script>

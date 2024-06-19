@@ -1,0 +1,30 @@
+---
+layout: sample.njk
+title: Shadow instead of outline
+eleventyNavigation:
+  key: Shadow instead of outline
+  parent: Recipe 6.1
+tags:
+  - chapters
+---
+<style>
+  .sample button {
+    border: none;
+  }
+
+  .sample :focus-visible {
+    --black: #0b0c0c;
+    --yellow: #fd0;
+
+    color: var(--black);
+    background-color: var(--yellow);
+    box-shadow: 0 -0.125em var(--yellow), 0 0.25em var(--black);
+    outline: 0.25em solid transparent;
+  }
+</style>
+
+<button>Button 1</button>
+<button>Button 2</button>
+<button>Button 3</button>
+<button>Button 4</button>
+<button>Button 5</button>

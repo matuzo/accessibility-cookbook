@@ -1,0 +1,25 @@
+---
+layout: sample.njk
+title: aria-live polite
+eleventyNavigation:
+  key: aria-live polite
+  parent: Recipe 3.7
+tags:
+  - chapters
+---
+<button>Change name</button>
+
+<div aria-live="polite">
+ My name is <span>Claudia</span>
+</div>
+
+<script>
+  const button = document.querySelector('button');
+  const names = ['Moritz', 'Valentina', 'Johanna', 'Magdalena', 'Victoria', 'Philippa', 'Olivia'];
+  const name = document.querySelector('.sample span');
+
+  button.addEventListener('click', e => {
+    const random = Math.floor(Math.random() * names.length);
+    name.textContent = names[random];
+  })
+</script>

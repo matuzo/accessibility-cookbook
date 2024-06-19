@@ -1,0 +1,89 @@
+---
+layout: sample.njk
+title: Card component 1 (solution 5)
+eleventyNavigation:
+  key: Card component 1 (solution 5)
+  parent: Recipe 3.8
+tags:
+  - chapters
+---
+<div class="card">
+  <h3>
+    When Isn’t Enough: JavaScript Requirements For Accessible Components
+  </h3>
+  
+  <p class="author">by <a href="https://thinkdobecreate.com/">Stephanie Eckles</a></p>
+  
+  <img src="/images/demos/card_image.avif" alt="Example dropdown menus from Dribbble, Google search, and GitHub">
+
+  <div>
+    <p>
+      Spoiler alert: tooltips, modals, tabs, carousels, and dropdown
+      menus are some of the user interface components that require more
+      than CSS. To ensure accessibility of your interface, JavaScript
+      is a necessary addition to accomplish focus management, respond
+      to keyboard events, and toggle ARIA attributes.
+    </p>
+  </div>
+
+  <p>
+    Read
+    <a class="readmore" href="https://www.smashingmagazine.com/2021/06/css-javascript-requirements-accessible-components/">
+      “When CSS Isn’t Enough”
+    </a>.
+  </p>
+</div>
+
+<style>
+  .card {
+    --padding: 1rem;
+
+    background-color: hsl(222deg 100% 98%);
+    box-shadow: 0 0 7px 3px hsl(0deg 0% 0% / 10%);
+    display: grid;
+    font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, sans-serif;
+    grid-template-columns: var(--padding) 1fr var(--padding);
+    line-height: 1.5;
+    max-width: 23rem;
+    padding-block-end: var(--padding);
+  }
+
+  .card > * {
+    grid-column: 2 / -2;
+    margin: 0 0 0.6em;
+  }
+
+  .card h3 {
+    line-height: 1.3;
+    margin-block-end: 0;
+  }
+  .card h3 a {
+    color: initial;
+    text-decoration: initial;
+  }
+  .card :is(img, .img) {
+    grid-column: 1 / -1;
+    margin-block-end: var(--padding);
+    max-width: 100%;
+    order: -1;
+  }
+  .card :last-child {
+    margin-block-end: 0;
+  }
+</style>
+
+<script>
+  const card = document.querySelector(".card");
+  let down,
+  up,
+  link = card.querySelector(".readmore");
+  
+  card.onmousedown = () => (down = +new Date());
+  card.onmouseup = () => {
+    up = +new Date();
+    
+    if (up - down < 200) {
+      link.click();
+    }
+  };
+</script>

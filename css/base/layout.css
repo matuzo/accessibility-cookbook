@@ -1,0 +1,42 @@
+@layer base.layout {
+  /* Header landmark */
+  :is(body > header, body :not(article, aside, nav, main, section) header) {
+    background: var(--o-header-background);
+  }
+  
+  :is(body > header, body :not(article, aside, nav, main, section) header) {
+    color: var(--o-header-color);
+  }
+
+  :is(body > header, body :not(article, aside, nav, main, section) header) > div {
+    margin-inline: var(--o-layout-centering);
+    padding: 1rem var(--o-layout-a, 1rem);
+    width: 100%;
+  }
+
+  :is(body > header, body :not(article, aside, nav, main, section) header) > div > span {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+
+  /** Main landmark
+   * Center it only if the layout is a single-column layout
+   **/
+  main {
+    margin-inline: var(--o-layout-a, var(--o-layout-centering));
+    max-inline-size: var(--o-layout-b, var(--o-layout-inline-size));
+    padding: 0 var(--o-layout-a, 1rem);
+  }
+
+  /* Footer landmark */
+  :is(body > footer, body :not(article, aside, nav, main, section) footer) {
+    grid-column: var(--o-layout-b, 2);
+  }
+
+  :is(body > footer, body :not(article, aside, nav, main, section) footer) > div {
+    margin-inline: var(--o-layout-a, var(--o-layout-centering));
+    padding: 1.8rem var(--o-layout-a, 1rem);
+  }
+}

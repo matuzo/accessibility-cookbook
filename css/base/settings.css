@@ -1,0 +1,91 @@
+@layer base.settings {
+  html {
+    /** 
+     * Default Color palette 
+     */
+     --o-color-text-theme-a: oklch(0.24 0.07 258.22); /* Text */
+     --o-color-background-theme-a: oklch(1 0 0); /* Background */
+    --o-color-highlight1-theme-a: oklch(0.85 0.17 86.54);
+    --o-color-highlight2-theme-a: oklch(0.59 0.21 7.05);
+
+
+    --o-color-5-l: var(--o-color-scheme-dark, 0.87) var(--o-color-scheme-light, 0.57);
+    --o-color-5-h: var(--o-theme-a, 278) var(--o-theme-b, 8);
+    --o-color-5: oklch(var(--o-color-5-l) 0.14 var(--o-color-5-h)); /* Links */
+
+    --o-color-text-theme-b: #131313;
+    --o-color-background-theme-b: oklch(0.98 0.02 179.17);
+    --o-color-highlight1-theme-b: oklch(0.55 0.11 232.04) ;
+    --o-color-highlight2-theme-b: #4B696C;
+
+    --o-color-text-theme-1: ;
+    --o-color-background-theme-1: ;
+    --o-color-highlight1-theme-1: ;
+    --o-color-highlight2-theme-1: ;
+    
+    --o-color-text-theme-2: ;
+    --o-color-background-theme-2: ;
+    --o-color-highlight1-theme-2: ;
+    --o-color-highlight2-theme-2: ;
+
+    --o-color-text: var(--o-theme-a, var(--o-color-text-theme-a)) 
+                    var(--o-theme-b, var(--o-color-text-theme-b))
+                    var(--o-theme-1, var(--o-color-text-theme-1));
+
+    --o-color-background: var(--o-theme-a, var(--o-color-background-theme-a)) 
+                          var(--o-theme-b, var(--o-color-background-theme-b)) 
+                          var(--o-theme-1, var(--o-color-background-theme-1))
+                          var(--o-theme-2, var(--o-color-background-theme-2));
+
+    --o-color-highlight1: var(--o-theme-a, var(--o-color-highlight1-theme-a)) 
+                          var(--o-theme-b, var(--o-color-highlight1-theme-b))
+                          var(--o-theme-2, var(--o-color-highlight1-theme-2));
+
+    --o-color-highlight2: var(--o-theme-a, var(--o-color-highlight2-theme-a)) 
+                          var(--o-theme-b, var(--o-color-highlight2-theme-b))
+                          var(--o-theme-1, var(--o-color-highlight2-theme-1))
+                          var(--o-theme-2, var(--o-color-highlight2-theme-2));
+    
+    /* Color scheme */
+    --o-color-scheme-light-background: var(--o-color-background); 
+    --o-color-scheme-light-color: var(--o-color-text); 
+
+    --o-color-scheme-dark-background: var(--o-color-text); 
+    --o-color-scheme-dark-color: var(--o-color-background); 
+
+    /* Background color for the main content */
+    --o-site-background: var(--o-color-scheme-dark, var(--o-color-scheme-dark-background)) 
+                         var(--o-color-scheme-light, var(--o-color-scheme-light-background));
+
+    /* Text color for the site */
+    --o-site-color: var(--o-color-scheme-dark, var(--o-color-scheme-dark-color))
+                    var(--o-color-scheme-light, var(--o-color-scheme-light-color));
+
+    --o-link-color: var(--o-color-5);
+    --o-highlight-color: var(--o-color-scheme-dark, var(--o-color-highlight1)) var(--o-color-scheme-light, var(--o-color-highlight2));
+    --o-h1-color: var(--o-highlight-color);
+
+    /* Type settings */
+    --o-font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+    --o-font-size: 125%;
+    --o-line-height: 1.6;
+
+    /* Layout settings */
+    --o-layout-inline-size: 50rem;
+    --o-layout-centering: var(--o-layout-center, max(0px, ((100% - var(--o-layout-inline-size)) / 2)));
+    --o-layout-a-columns: auto;
+    --o-layout-b-columns: 20rem 1fr;
+
+    --o-layout-columns: var(--o-layout-a, var(--o-layout-a-columns))
+                        var(--o-layout-b, var(--o-layout-b-columns));
+
+    /* Header landmark */
+    --o-header-background: transparent;
+  }
+
+  @media(min-width: 768px) {
+   html {
+    --o-font-size: 150%;
+   }   
+  }
+}

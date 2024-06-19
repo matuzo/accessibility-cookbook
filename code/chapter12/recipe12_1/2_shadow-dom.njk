@@ -1,0 +1,26 @@
+---
+layout: sample.njk
+title: Shadow DOM
+eleventyNavigation:
+  key: Shadow DOM
+  parent: Recipe 12.1
+tags:
+  - chapters
+---
+<the-input></the-input>
+
+<script>
+  class TheInput extends HTMLElement {
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.innerHTML = `
+      <label for="email">E-Mail</label>
+      <input type="email" id="email" />
+    `
+  }
+}
+
+customElements.define("the-input", TheInput);
+</script>

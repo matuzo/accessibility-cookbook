@@ -1,0 +1,16 @@
+---
+layout: sample.njk
+title: Focus Within
+eleventyNavigation:
+  key: Focus Within
+  parent: Recipe 6.1
+tags:
+  - chapters
+---
+<style>
+.sample :is(video, audio):focus-within {
+  box-shadow: 0 0 10px 3px rgb(0 0 0 / 0.2);
+}
+</style>
+
+<video controls src="/media/video.mp4"></video>

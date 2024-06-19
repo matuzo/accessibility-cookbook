@@ -1,0 +1,58 @@
+---
+layout: sample.njk
+title: viewport units
+eleventyNavigation:
+  key: viewport units
+  parent: Recipe 5.3
+tags:
+  - chapters
+codeOnly: true
+codepen: https://codepen.io/matuzo/pen/OJYQvpm
+---
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .sample .columns {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    font-size: 1.6rem;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .sample :where(.columns) div {
+    background: hwb(10 0% 0% / 0.95);
+    flex-grow: 1;
+    border: 1rem solid rgb(255 255 255 / 0.95);
+    outline: 1px solid #000;
+    padding-top: 1rem;
+    height: 100vh;
+  }
+
+
+  .sample .lvh {
+    background: hwb(260 0% 0% / 0.95);
+    height: 100lvh;
+  }
+
+  .sample .svh {
+    background: hwb(140 0% 0% / 0.95);
+    height: 100svh;
+  }
+
+  .sample .dvh {
+    background: hwb(300 0% 0% / 0.95);
+    height: 100dvh;
+  }
+</style>
+
+<div class="columns">
+  <div class="vh">vh</div>
+  <div class="lvh">lvh</div>
+  <div class="svh">svh</div>
+  <div class="dvh">dvh</div>
+</div>

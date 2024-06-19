@@ -1,0 +1,107 @@
+---
+layout: sample.njk
+title: Media Queries
+eleventyNavigation:
+  key: Media Queries
+  parent: Recipe 5.3
+tags:
+  - chapters
+codeOnly: true
+codepen: https://codepen.io/matuzo/pen/LYoQdjE
+---
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  --direction: column;
+
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-block-end: 1em;
+  gap: 1rem;
+  display: flex;
+  flex-direction: var(--direction);
+}
+
+.wrapper div {
+  border: 10px solid #123456;
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+@media(min-width: 960px) {
+  .wrapper-px {
+    --direction: row;
+  }
+}
+
+@media(min-width: 60em) {
+  .wrapper-em {
+    --direction: row;
+  }
+}
+
+@media(min-width: 60rem) {
+  .wrapper-rem {
+    --direction: row;
+  }
+}
+
+.log {
+  background-color: #123456;
+  color: #fff;
+  position: fixed;
+  inset: 0 0 auto auto;
+  padding: 0.3em 1em;
+  text-align: end;
+  line-height: 1.4;
+  column-count: 2;
+}
+
+</style>
+
+<div class="wrapper wrapper-rem">
+  <div>REM</div>
+  <div>REM</div>
+</div>
+
+<div class="wrapper wrapper-em">
+  <div>EM</div>
+  <div>EM</div>
+</div>
+
+<div class="wrapper wrapper-px">
+  <div>PX</div>
+  <div>PX</div>
+</div>
+
+<div class="log">
+  <div>Layout viewport width: <span class="layout"></span>px</div>
+  <div>Visual viewport width: <span class="visual"></span>px</div>
+  <div>Zoom level: <span class="zoom"></span>%</div>
+  <div>Viewport scale: <span class="scale"></span></div>
+  <div>Base font size: <span class="fontsize"></span></div>
+  </div>
+
+<script>
+  const log = () => {
+    document.querySelector('.layout').textContent = document.documentElement.clientWidth;
+    document.querySelector('.visual').textContent = Math.round(window.visualViewport.width);
+    document.querySelector('.scale').textContent = Math.round(window.visualViewport.scale * 100) / 100;
+    document.querySelector('.zoom').textContent = Math.round((1280 / document.documentElement.clientWidth) * 100);
+    document.querySelector('.fontsize').textContent =  window.getComputedStyle(document.documentElement).fontSize;
+  }
+
+  log();
+
+  window.addEventListener('resize', e => {
+    console.log('Window resize')
+    log();
+  })
+  window.visualViewport.addEventListener('resize', e => {
+    console.log('Visual Viewport resize')
+    log();
+  })
+</script>

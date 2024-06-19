@@ -1,0 +1,23 @@
+/*=============================================
+  Tabular data    
+  table, caption, tbody, thead, tfoot, 
+  tr, td, th
+=============================================*/
+
+@layer base.default {
+  table {
+    border: 1px solid;
+    border-collapse: collapse;
+  }
+
+  caption {
+    text-align: left;
+    inline-size: max-content;
+  }
+
+  th, td {
+    border: 1px solid;
+    text-align: left;
+    padding: 0.1em 0.6em;
+  }
+}

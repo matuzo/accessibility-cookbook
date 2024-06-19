@@ -1,0 +1,51 @@
+---
+layout: sample.njk
+title: Input fields
+eleventyNavigation:
+  key: Input fields
+  parent: Recipe 11.3
+tags:
+  - chapters
+---
+<table>
+  <caption>Scores Group A</caption>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th id="score">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="name1">Michael</td>
+      <td><input type="text" aria-labelledby="name1 score" value="27"></td>
+    </tr>
+    <tr>
+      <td id="name2">Robert</td>
+      <td><input type="text" aria-labelledby="name2 score"></td>
+    </tr>
+    <tr>
+      <td id="name3">Dominik</td>
+      <td><input type="text" aria-labelledby="name3 score"></td>
+    </tr>
+    <tr>
+      <td id="name4">David</td>
+      <td><input type="text" aria-labelledby="name4 score"></td>
+    </tr>
+    <tr>
+      <td id="name5">Markus</td>
+      <td><input type="text" aria-labelledby="name5 score"></td>
+    </tr>
+    <tr>
+      <td id="name6">Paul</td>
+      <td><input type="text" aria-labelledby="name6 score"></td>
+    <tr>
+  </tbody>
+</table>
+
+<style>
+  input {
+    padding: 0.2em;
+    margin-block: 0.5em;
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+layout: sample.njk
+title: Focusable landmark
+eleventyNavigation:
+  key: Focusable landmark
+  parent: Recipe 2.4
+tags:
+  - chapters
+codeOnly: true
+---
+<div role="region" aria-label="Code Demo" tabindex="0">
+ <article>
+ …
+ </article>
+</div>
+
+<style>
+[role="region"][tabindex="0"] {
+  overflow: auto;
+}
+</style>

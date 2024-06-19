@@ -1,0 +1,35 @@
+---
+layout: sample.njk
+title: em values
+eleventyNavigation:
+  key: em values
+  parent: Recipe 5.3
+tags:
+  - chapters
+---
+
+<style>
+.sample button {
+  --btn-font-size: 1.2rem;
+
+  border: 1px solid;
+  border-radius: 4px;
+  background: #123456;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: var(--btn-font-size);
+  padding: 0.4em 0.8em;
+}
+
+.sample .btn--small {
+  --btn-font-size: 1rem;
+}
+
+.sample .btn--large {
+  --btn-font-size: 1.6rem;
+}
+</style>
+
+<button class="btn--small">Save</button>
+<button>Save</button>
+<button class="btn--large">Save</button>

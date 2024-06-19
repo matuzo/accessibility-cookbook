@@ -1,0 +1,24 @@
+---
+layout: sample.njk
+title: Details element event
+eleventyNavigation:
+  key: Details element event
+  parent: Recipe 8.2
+tags:
+  - chapters
+---
+Opened: <span>false</span>
+
+<details>
+  <summary>Show details</summary>
+  
+  <p>Detailed content goes here…</p>
+</details>
+
+<script>
+  const details = document.querySelector('details')
+
+  details.addEventListener('toggle', e => {
+    document.querySelector('span').textContent = details.open
+  })
+</script>

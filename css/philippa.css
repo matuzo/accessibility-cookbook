@@ -1,0 +1,76 @@
+@layer third-party {
+  .p-tags {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.9em;
+    gap: 0.6rem;
+    list-style-type: "";
+    margin: 0;
+    padding: 0;
+  }
+
+  .p-tags li {
+    margin: 0;
+  }
+
+  .p-tags a {
+    border: 1px solid var(--o-highlight-color);
+    border-radius: 3em;
+    display: inline-block;
+    padding: 0.2em 0.8em;
+  }
+
+  .p-tags a:is(:link, :visited) {
+    color: var(--o-highlight-color);
+    text-decoration: none;
+  }
+
+  .p-tags a:is(:hover, :focus-visible, .highlight) {
+    background-color: var(--o-highlight-color);
+    color: #fff;
+  }
+
+  @media(min-width: 48em) {
+    .p-columns-m {
+      column-count: 2;
+    }
+  }
+
+  .p-stack {
+    align-items: start;
+  }
+
+  .p-stack:not(.p-stack-m) {
+    display: flex;
+  }
+
+  @media (min-width: 48em) {
+    .p-stack-m {
+      display: flex;
+    }
+  }
+
+  .p-gap {
+    gap: 1rem;
+  }
+
+  .p-gap-xs {
+    gap: 0.5rem;
+  }
+
+  .p-gap-s {
+    gap: 0.75rem;
+  }
+
+  .p-gap-m {
+    gap: 1rem;
+  }
+
+  .p-gap-l {
+    gap: 1.25rem;
+  }
+
+  .p-gap-xl {
+    gap: 1.5rem;
+  }
+}
