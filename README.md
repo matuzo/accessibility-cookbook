@@ -1,9 +1,9 @@
 # Accessibility Cookbook
 
-Live demos: [https://accessibility-cookbook.com/code](accessibility-cookbook.com/code)
+Live demos: [accessibility-cookbook.com/code](https://accessibility-cookbook.com/code)
 
-All compiled pages are located in [/_site](/_site).  
-The raw files are in [/code](/code).
+All compiled pages are located in /_site.  
+The raw files are in [code](/code).
 
 ## Installation
 
